@@ -15,12 +15,19 @@
 
         <% farmers.forEach(function(farmer){ %>
         <h4>
-          <!-- REDO THIS FORM HERE -->
+          <!-- GO OVER THIS FORM HERE -->
           <form method="POST" action="/<%= farmer._id %>?_method=DELETE">
             <a href="/<%= farmer._id %>"><%= farmer.title %></a>
             <% farmer.name.forEach(function(name){ %>
             Farmer: <%=farmer.name %>
+            <% }) %>
+
+            <% farmer.farm_name.forEach(function(name){ %>
             Farm name: <%=farmer.farm_name %>
+            <% }) %>
+
+            <% farmer.address.city.forEach(function(city){ %>
+            City: <%=farmer.address.city %>
             <% }) %>
 
             <% farmer.details.organic.forEach(function(organic){%>

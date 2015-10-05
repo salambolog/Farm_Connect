@@ -14,11 +14,12 @@
   <main>
     <div>
       <h3>Edit your information:</h3>
-      <!-- TODO: GET FORM INFO AND CHANGE THE ACTION AND CLASS HERE -->
+      <!-- TODO: GET FORM INFO AND CHANGE THE ACTION AND CLASS HEREg -->
       <form class="form" method="POST" action="/<%= farmer._id %>?_method=PUT">
         <!-- INCLUDE PARTIAL FOR FORM HERE HERE -->
         <!-- <% include ../partials/%> -->
-        <a href="/todos/<%= todo._id %>" class="btn btn-primary">Back</a>
+
+        <a href="/farmers/<%= farmer._id %>" class="btn btn-primary">Back</a>
         <button type="submit" class="btn btn-success">Save</button>
       </form>
     </div>
