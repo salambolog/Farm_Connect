@@ -20,7 +20,7 @@ var farmers = require('./routes/farmers');
 var app = express();
 
 // Connect to database
-mongoose.connect('mongodb://localhost/todos');
+mongoose.connect('mongodb://localhost/farmer');
 mongoose.connection.on('error', function(err) {
   console.error('MongoDB connection error: ' + err);
   process.exit(-1);

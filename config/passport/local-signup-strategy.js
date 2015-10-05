@@ -5,11 +5,11 @@ var strategy = new LocalStrategy(
   {
     usernameField : 'email',       // default for usernameField is 'username'
     passwordField : 'password',
-    passReqToCallback : true
+    passReqToCallback : true,
   },
   function(req, email, password, callback) {
     // See if a user already has this email
-    User.findOne({ 'local.email' : email }, function(err, user) {
+    Farmer.findOne({ 'local.email' : email }, function(err, farmer) {
       if (err) return callback(err);
       if (farmer) {
         // a user with this email already exists
@@ -18,8 +18,17 @@ var strategy = new LocalStrategy(
       else {
         // Create a new user
         var newFarmer = new Farmer();
+        newFarmer.name = req.body.name;
+        newFarmer.farm_name = req.body.farm_name;
+        newFarmer.address.street = req.body.street;
+        newFarmer.address.city = req.body.city;
+        newFarmer.address.state = req.body.state;
+        newFarmer.address.zipcode = req.body.zipcode;
+        newFarmer.address.organic = req.body.organic;
         newFarmer.local.email = email;
         newFarmer.local.password = newFarmer.encrypt(password);
+
+        console.log('Full request: ' + JSON.stringify(req.body));
 
         newFarmer.save(function(err) {
           return callback(err, newFarmer);
