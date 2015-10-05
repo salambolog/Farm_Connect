@@ -19,6 +19,7 @@ var strategy = new LocalStrategy(
       if (!farmer.validPassword(password)) {
         return callback(null, false, req.flash('error', 'Oops! Wrong email or password.'));
       }
+      console.log('login-strategy returning user:', farmer);
       return callback(null, farmer);
     });
   });

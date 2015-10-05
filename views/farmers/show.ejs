@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <% include ../partials/head %>
-</head>
-
-<body class="container">
-  <header>
-    <% include ../partials/header %>
-  </header>
-
-  <main>
-    <div>
-      <h3>See farmer</h3>
-      <p><b>Farmer: </b><%= farmer.name %></p>
-      <p><b>Farm Name: </b><%= farmer.farm_name %></p>
-      <p><b>Location: </b><%= farmer.address.city %></p>
-      <p><b>Organic: </b><%= farmer.details.organic %></p>
-    </div>
-    <!-- GO OVER THIS -->
-    <a href="/farmers" class="btn btn-primary">Back</a>
-    <a href="/farmers/<%= farmer._id %>/edit" class="btn btn-danger">Edit your details</a>
-  </main>
-
-  <footer>
-    <% include ../partials/footer %>
-  </footer>
-</body>
-</html>
+<div>
+  <h3>See farmer</h3>
+  <p><b>Farmer: </b><%= farmer.name %></p>
+  <p><b>Farm Name: </b><%= farmer.farm_name %></p>
+  <p><b>Location: </b><%= farmer.address.city %></p>
+  <p><b>Organic: </b><%= farmer.details.organic %></p>
+</div>
+<!-- GO OVER THIS -->
+<a href="/farmers" class="btn btn-primary">Back</a>
+<a href="/farmers/<%= farmer._id %>/edit" class="btn btn-danger">Edit your details</a>

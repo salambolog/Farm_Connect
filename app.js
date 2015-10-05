@@ -20,7 +20,7 @@ var farmers = require('./routes/farmers');
 var app = express();
 
 // Connect to database
-mongoose.connect('mongodb://localhost/farmer');
+mongoose.connect('mongodb://localhost/farmers');
 mongoose.connection.on('error', function(err) {
   console.error('MongoDB connection error: ' + err);
   process.exit(-1);
@@ -57,7 +57,7 @@ require('./config/passport/passport')(passport);
 
 // This middleware will allow us to use the currentUser/currentFarmer in our views and routes.
 app.use(function(req, res, next) {
-  global.currentFarmer = req.farmer;
+  global.currentFarmer = req.user;
   next();
 });
 
