@@ -12,16 +12,19 @@ router.get('/signup', function(req, res, next) {
   res.render('signup.ejs', { message: req.flash() });
 });
 
-// POST /signup
-router.post('/signup', function(req, res, next) {
+function signupAuthenticate(req, res, next) {
   var signUpStrategy = passport.authenticate('local-signup', {
-    //configure this redirect after complete sign up page
-    successRedirect : '/farmers',
     failureRedirect : '/signup',
     failureFlash : true
   });
-  //this will actually execute the code above
   return signUpStrategy(req, res, next);
+}
+
+// POST /signup
+router.post('/signup', signupAuthenticate, function(req, res, next) {
+  if (req.user) {
+    res.redirect('/farmers/' + req.user._id);
+  }
 });
 
 // GET /login
@@ -29,16 +32,19 @@ router.get('/login', function(req, res, next) {
   res.render('login.ejs', { message: req.flash() });
 });
 
-// POST /login
-router.post('/login', function(req, res, next) {
+function authenticate(req, res, next) {
   var loginProperty = passport.authenticate('local-login', {
-    //configure this redirect after complete login/sign up page
-    successRedirect : '/farmers',
     failureRedirect : '/login',
     failureFlash : true
   });
-
   return loginProperty(req, res, next);
+}
+
+// POST /login
+router.post('/login', authenticate, function(req, res, next) {
+  if (req.user) {
+    res.redirect('/farmers/' + req.user._id);
+  }
 });
 
 // GET /logout

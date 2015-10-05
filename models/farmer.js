@@ -1,9 +1,12 @@
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
 
-var farmerSchema = new Schema({
+var FarmerSchema = new Schema({
   name: String,
-  email: String,
+  local :{ email: String,
+           password: String
+         },
   address: {
     street: String,
     city: String,
@@ -17,4 +20,12 @@ var farmerSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Farmer', farmerSchema);
+FarmerSchema.methods.encrypt = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
+};
+
+FarmerSchema.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.local.password);
+};
+
+module.exports = mongoose.model('Farmer', FarmerSchema);

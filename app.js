@@ -20,7 +20,7 @@ var farmers = require('./routes/farmers');
 var app = express();
 
 // Connect to database
-mongoose.connect('mongodb://localhost/todos');
+mongoose.connect('mongodb://localhost/farmers');
 mongoose.connection.on('error', function(err) {
   console.error('MongoDB connection error: ' + err);
   process.exit(-1);
@@ -33,6 +33,9 @@ mongoose.connection.once('open', function() {
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.set('layout', 'layout') // defaults to 'layout'
+app.use(expressLayouts);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -54,7 +57,7 @@ require('./config/passport/passport')(passport);
 
 // This middleware will allow us to use the currentUser/currentFarmer in our views and routes.
 app.use(function(req, res, next) {
-  global.currentFarmer = req.farmer;
+  global.currentFarmer = req.user;
   next();
 });
 
