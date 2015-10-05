@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang ='en'>
+  <head>
+    <% include ../partials/head %>
+  </head>
+
+  <body class = 'container-fluid'>
+    <header>
+     <% include ../partials/header %>
+    </header>
+
+    <main>
+      <div>
+        <h1>Farmers in your area:</h1>
+
+        <% farmers.forEach(function(farmer){ %>
+        <h4>
+          <!-- REDO THIS FORM HERE -->
+          <form method="POST" action="/<%= farmer._id %>?_method=DELETE">
+            <a href="/<%= farmer._id %>"><%= farmer.title %></a>
+            <% farmer.name.forEach(function(name){ %>
+            Farmer: <%=farmer.name %>
+            Farm name: <%=farmer.farm_name %>
+            <% }) %>
+
+            <% farmer.details.organic.forEach(function(organic){%>
+            Organic: <%= farmer.details.organic%>
+            <%})%>
+            <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+          </form>
+        </h4>
+        <% })%>
+      </div>
+      <a href="/farmer/new" class = 'btn btn-primary'>New</a>
+    </main>
+
+
+      <footer>
+      <% include ../partials/footer %>
+    </footer>
+  </body>
+</html>
