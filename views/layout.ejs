@@ -3,17 +3,18 @@
   <head>
     <% include partials/head %>
   </head>
-
-  <body class="container-fluid">
+  <body>
     <header>
       <% include partials/header %>
     </header>
 
-    <main>
+    <main class="container">
       <%- body %>
+
+      <div class="push"></div>
     </main>
 
-    <footer>
+    <footer class="footer">
       <% include partials/footer %>
     </footer>
   </body>
