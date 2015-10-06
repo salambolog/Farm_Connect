@@ -1,53 +1,65 @@
-<div>
-  <h2>Signup</h2>
+
+  <h2>Register</h2>
+  <h4>All fields are required.</h4>
+  <div class="authform">
   <form method="post" action="/signup">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input class="form-control" type="text" name="name" id="name">
+    <div class="row left">
+      <div class="col-md-6">
+      <h3>Information:</h3>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input class="form-control well" type="text" name="name" id="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="farm_name">Farm Name:</label>
+          <input class="form-control" type="text" name="farm_name" id="farm_name" required>
+        </div>
+
+       <div class="form-group">
+          <label for="email">Email:</label>
+          <input class="form-control" type="text" name="email" id="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input class="form-control" type="password" name="password" pattern=".{8,}" title="Password must be eight or more characters" id="password" required>
+        </div>
+
+        <div class="form-group col-sm-3">
+          <label for="organic">Organic:</label>
+          <input class="form-control" type="checkbox" name="organic" id="organic">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+        <h3>Address:</h3>
+          <label for="street">Street:</label>
+          <input class="form-control" type="text" name="street" id="street" required>
+        </div>
+
+        <div class="form-group">
+          <label for="city">city:</label>
+          <input class="form-control" type="text" name="city" id="city" required>
+        </div>
+
+        <div class="form-group">
+          <label for="state">State:</label>
+          <input class="form-control" type="text" name="state" id="state" required>
+        </div>
+
+        <div class="form-group">
+          <label for="zipcode">Zipcode:</label>
+          <input class="form-control" type="text" pattern="\d{5,5}?" title="Zipcode must be five digits. Numbers only" name="zipcode" id="zipcode" required>
+        </div>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="farm_name">Farm Name</label>
-      <input class="form-control" type="text" name="farm_name" id="farm_name">
+    <div class="row">
+      <div class="col-md-6">
+        <input class="btn btn-default btn-lg" type="submit">
+      </div>
     </div>
-
-    <div class="form-group">
-      <label for="organic">Organic</label>
-      <input class="form-control" type="checkbox" name="organic" id="organic">
-    </div>
-
-    <div class="form-group">
-    <h3>Address:</h3>
-      <label for="street">Street</label>
-      <input class="form-control" type="text" name="street" id="street">
-    </div>
-
-    <div class="form-group">
-      <label for="city">city</label>
-      <input class="form-control" type="text" name="city" id="city">
-    </div>
-
-    <div class="form-group">
-      <label for="state">State</label>
-      <input class="form-control" type="text" name="state" id="state">
-    </div>
-
-    <div class="form-group">
-      <label for="zipcode">Zipcode</label>
-      <input class="form-control" type="text" pattern="\d*" name="zipcode" id="zipcode">
-    </div>
-
-    <div class="form-group">
-    <h3>Login Information</h3>
-      <label for="email">Email</label>
-      <input class="form-control" type="text" name="email" id="email">
-    </div>
-
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input class="form-control" type="password" name="password" id="password">
-    </div>
-
-    <input class="btn btn-default" type="submit">
   </form>
 </div>
