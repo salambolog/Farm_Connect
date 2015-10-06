@@ -21,7 +21,6 @@ var authenticate = function(req, res, next) {
 // INDEX
 router.get('/', function(req, res, next) {
   console.log('FARMERS:index');
-  // var farmers = global.currentFarmer;
   res.render('index', { title: 'Farm Connect',
                         farmer: currentFarmer
    });
@@ -81,7 +80,7 @@ router.put('/:id', function(req, res, next) {
 
       farmer.save(function(err) {
         if (err) return next(err);
-        // Check redirect
+        // Redirect to profile after update
         res.redirect('/farmers/show');
       });
   }
