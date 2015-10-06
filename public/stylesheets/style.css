@@ -64,12 +64,16 @@ ul {
 }
 /**********************/
 /******** FORM ********/
+.wrapper {
+  padding: 50px;
+  background-color: white;
+}
 .authform {
   padding: 40px;
   margin: auto auto;
   background-color: rgba(196,194,172, 0.8);
   border-radius: 5px;
-  max-width: 850px;
+  max-width: 80%;
   min-height: auto;
 }
 .sign-in{
