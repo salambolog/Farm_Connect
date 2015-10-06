@@ -8,14 +8,22 @@
       <% include partials/header %>
     </header>
 
-    <main class="container">
+    <main>
       <%- body %>
-
-      <div class="push"></div>
     </main>
 
     <footer class="footer">
       <% include partials/footer %>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    function scrollPage() {
+      $('html, body').animate({
+        scrollTop: $('#name').offset().top
+        }, 600);
+    }
+    scrollPage();
+    </script>
   </body>
 </html>
