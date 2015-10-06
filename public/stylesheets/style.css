@@ -12,8 +12,20 @@ h1, h2, h3, label {
   text-align: center;
 }
 
+h1 {
+  font-family: "Amaranth" sans-serif;
+  font-size: 4em;
+  color: #75142B;
+}
 h4 {
   color: #fafafa;
+}
+
+h5 {
+  font-family: 'Mrs Sheppards', cursive;
+  font-size: 3em;
+  text-align: center;
+  color: white;
 }
 
 p {
@@ -32,11 +44,14 @@ ul {
   color: white;
 }
 
-
-
 .facts {
   width: 550px;
   background-color:
+}
+
+.shovel {
+  float: right;
+  margin-top: 180px;
 }
 
 /**********************/
