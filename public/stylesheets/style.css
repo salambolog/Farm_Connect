@@ -1,6 +1,15 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('../images/farm.jpg');
+}
+
+h1 {
+  font-family: url('../fonts/Precursive.otf');
+  color: white;
+}
+
+p {
+  color: white;
 }
 
 a {
