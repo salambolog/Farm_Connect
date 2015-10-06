@@ -2,19 +2,25 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
+<<<<<<< HEAD
         Welcome to Farm Connect!
+=======
+        <span class="glyphicon glyphicon glyphicon-leaf"></span>
+        <% if (currentFarmer) { %>
+        <%= currentFarmer.farm_name %>
+        <% } else { %>
+        Farm Connect!
+        <% } %>
+>>>>>>> a4559cf7d454d55ddfbb1bda9156866d789d2b82
       </a>
     </div>
 
-    <ul class="nav navbar-nav navbar-left">
+    <ul class="nav navbar-nav navbar-right">
       <li><a href="/">Home</a></li>
       <% if (currentFarmer) { %>
-        <li><a href="/farmers">farmers</a></li>
+        <li><a href="/farmers/<%= farmer._id %>">Profile</a></li>
       <% } %>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
       <% if (currentFarmer) { %>
-        <li><a href="#"><%= currentFarmer.local.email %></a></li>
         <li><a href="/logout">Logout</a></li>
       <% } else { %>
         <li><a href="/login">Login</a></li>
