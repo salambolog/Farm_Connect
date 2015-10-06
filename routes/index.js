@@ -1,10 +1,28 @@
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
+var Farmer = require('../models/farmer')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Farm Connect' });
+});
+
+// GET Farmers
+// router.get('/farmers', function(req, res, next){
+//   var addresses = Address.find({};)
+// });
+
+router.get('/farmers', function(req, res, next){
+  Farmer.find({}, function(err, farmers){
+    if(err) return next(err);
+    res.send(farmers);
+  });
+});
+
+// POST FARMERS
+router.post('/farmers', function(req, res, next){
+
 });
 
 // GET /signup

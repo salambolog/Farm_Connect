@@ -7,7 +7,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJZcpHfGvTwdAk5HNVPzctrm-l3qiv_4"
   type="text/javascript"></script>
   <script>
-    var geocoder;
+      var geocoder;
       var map;
       function initialize() {
         geocoder = new google.maps.Geocoder();
@@ -21,6 +21,7 @@
 
       function codeAddress() {
         var address = document.getElementById("address").value;
+        var radius = document.getElementById("radius").value;
         geocoder.geocode( { 'address': address}, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
@@ -34,6 +35,80 @@
         });
       }
 
+      // var marker, i;
+
+      // for (i = 0; i < locations.length; i++) {
+      //    marker = new google.maps.Marker({
+      //         position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+      //         map: map
+      //    });
+// fetch Places JSON from /data/places
+    // loop through and populate the map with markers
+    var fetchPlaces = function() {
+        // var infowindow =  new google.maps.InfoWindow({
+        //     content: ''
+        // });
+        jQuery.ajax({
+            url : 'http://127.0.0.1:3000/farmers',
+            dataType : 'json',
+            success : function(response) {
+
+                if (response.status == 'OK') {
+                    places = response.places;
+                    // loop through places and add markers
+                    for (p in places) {
+                        //create gmap latlng obj
+                        tmpLatLng = new google.maps.LatLng( places[p].geo[0], places[p].geo[1]);
+                        // make and place map maker.
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: tmpLatLng,
+                            title : places[p].name + "<br>" + places[p].geo_name
+                        });
+                        bindInfoWindow(marker, map, infowindow, '<b>'+places[p].name + "</b><br>" + places[p].geo_name);
+                        // not currently used but good to keep track of markers
+                        markers.push(marker);
+                    }
+                }
+            }
+        });
+    };
+   // google.maps.event.addListener(marker, 'click', (function(marker, i) {
+   //      return function() {
+   //          infowindow.setContent(locations[i][0]);
+   //          infowindow.open(map, marker);
+   //      }
+   // })(marker, i));
+// }
+
+  //        var origin = new google.maps.LatLng(55.930385, -3.118425),
+  //         destination = "Stockholm, Sweden",
+  //         service = new google.maps.DistanceMatrixService();
+
+  // service.getDistanceMatrix(
+  //     {
+  //         origins: [origin],
+  //         destinations: [destination],
+  //         travelMode: google.maps.TravelMode.DRIVING,
+  //         avoidHighways: false,
+  //         avoidTolls: false
+  //     },
+  //     callback
+  // );
+
+  // function callback(response, status) {
+  //     var orig = document.getElementById("orig"),
+  //         dest = document.getElementById("dest"),
+  //         dist = document.getElementById("dist");
+
+  //     if(status=="OK") {
+  //         orig.value = response.destinationAddresses[0];
+  //         dest.value = response.originAddresses[0];
+  //         dist.value = response.rows[0].elements[0].distance.text;
+  //     } else {
+  //         alert("Error: " + status);
+  //     }
+  // }
   </script>
   </head>
   <body>
@@ -43,17 +118,19 @@
         <!-- MAYBE SOME CSS ANIMATION HERE -->
         <h5>Search for farmers near you by inputing your address here:</h5>
       </div>
+      <div class = "col-lg-2 col-lg-offset-1">
+        <h5>To narrow your search, give us a radius:</h5>
+      </div>
     </div>
     <div class ="row">
       <div class = "col-lg-5 col-lg-offset-4">
         <input id="address" class = "form-control" type="search" placeholder="Coleman River Rd, Clayton, GA 30525">
       </div>
       <div class = "dropdown col-lg-2">
-       <input id="radius" class = "form-control" type="search" placeholder="15 miles">
+       <input id="radius" class = "form-control" type="number" placeholder="15 miles">
       </div>
-
       <div class = "col-lg-1">
-       <button class="btn btn-default" type="button" onclick="initialize(), codeAddress()">Find a farmer!</button>
+       <button class="btn btn-primary" type="button" onclick="initialize(), codeAddress()">Find a farmer!</button>
 
       </div>
     </div>
@@ -61,6 +138,8 @@
   <!-- TODO MAP NEEDS PADDING -->
   <div id="map" class = "col-lg-offset-1" style="width: 450px; height: 500px;"></div>
 </body>
-
+<!-- CALL FUNCTION TO LOAD MAP -->
 </html>
+
+<!-- OPTIONS FOR 1)DO SCALING 2)FIND DISTANCE FROM ADDRESS AND SORT -->
 
