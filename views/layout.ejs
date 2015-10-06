@@ -3,7 +3,6 @@
   <head>
     <% include partials/head %>
   </head>
-
   <body>
     <header>
       <% include partials/header %>
@@ -11,10 +10,11 @@
 
     <main class="container">
       <%- body %>
+
+      <div class="push"></div>
     </main>
 
-    <div class="push"></div>
-    <footer class="footer-area">
+    <footer class="footer">
       <% include partials/footer %>
     </footer>
   </body>

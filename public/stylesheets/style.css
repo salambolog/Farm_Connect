@@ -1,11 +1,18 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url('../images/farm.jpg');
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  background: url('../images/farm.jpg');
+  background-color: rgba(202,195,193, 0.6);
+  background-blend-mode: screen;
 }
 
-h1 {
-  font-family: url('../fonts/Precursive.otf');
+h1, h2, h3, label {
   color: white;
+}
+
+h4 {
+  color: #fafafa;
 }
 
 p {
@@ -16,14 +23,28 @@ a {
   color: #00B7FF;
 }
 
+.container {
+  padding-bottom: 50px;
+}
+
 /**********************/
 /******* NAVBAR *******/
 .navbar {
   padding: 10px 100px;
-  background-color: transparent;
+  background-color: rgba(1, 1, 1, 0.3);
+  border: 0;
+  border-bottom: 1px solid;
+  border-color: #666666;
+  border-radius: 0;
 }
 
-.navbar-default .navbar-nav>li>a:hover{
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a {
+  color: #fafafa;
+  font-size: 1.2em;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
   color: #00B7FF;
 }
 /**********************/
@@ -31,7 +52,7 @@ a {
 .authform {
   padding: 40px;
   margin: auto auto;
-  background-color: rgba(0,183,255, 0.3);
+  background-color: rgba(196,194,172, 0.8);
   border-radius: 5px;
   max-width: 850px;
   min-height: auto;
@@ -60,11 +81,8 @@ a {
 
 /*********************/
 /****** FOOTER *******/
-.push {
-  height: 63px;
-}
 .footer-area {
-  padding-top: 45px;
+  padding-top: 40px;
   margin-bottom: 0;
   width: 100%;
   background-color: #555555;
@@ -72,24 +90,7 @@ a {
 }
 .text-muted{
   color: #999090;
- }
-
-h1 {
-  color: white;
 }
 
-.text-muted {
-  color: white;
-}
 
-h2 {
-  color: white;
-}
 
-h3 {
-  color: white;
-}
-
-label {
-  color: white;
-}
