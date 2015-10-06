@@ -9,6 +9,12 @@ function makeError(res, message, status) {
   return error;
 }
 
+function scrollPage() {
+  $('html, body').animate({
+    scrollTop: $('#name').offset().top
+  }, 600);
+}
+
 var authenticate = function(req, res, next) {
   if(!req.isAuthenticated()) {
     res.redirect('/');
