@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
-
+var sass = require('node-sass');
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
@@ -46,6 +46,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ secret: 'SASSWatchFarm' }));

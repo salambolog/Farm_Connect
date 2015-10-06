@@ -4,16 +4,17 @@
     <% include partials/head %>
   </head>
 
-  <body class="container-fluid">
+  <body>
     <header>
       <% include partials/header %>
     </header>
 
-    <main>
+    <main class="container">
       <%- body %>
     </main>
 
-    <footer>
+    <div class="push"></div>
+    <footer class="footer-area">
       <% include partials/footer %>
     </footer>
   </body>
