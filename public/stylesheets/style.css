@@ -4,34 +4,21 @@ body {
 }
 
 h1 {
-  font-family: url('../fonts/Precursive.otf');
   color: white;
-}
-
-p {
-  color: white;
-}
-
-a {
-  color: #00B7FF;
-}
-
-h1 {
-  color: white;
+  text-align: center;
+  font-size: 80px;
+  margin-top: 100px;
 }
 
 .text-muted {
   color: white;
 }
 
-h2 {
-  color: white;
-}
-
-h3 {
-  color: white;
-}
-
-label {
-  color: white;
+img {
+  -moz-box-shadow: 0px 6px 5px #ccc;
+  -webkit-box-shadow: 0px 6px 5px #ccc;
+  box-shadow: 0px 6px 5px #ccc;
+  -moz-border-radius:190px;
+  -webkit-border-radius:190px;
+  border-radius:190px;
 }
