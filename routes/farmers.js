@@ -9,12 +9,6 @@ function makeError(res, message, status) {
   return error;
 }
 
-function scrollPage() {
-  $('html, body').animate({
-    scrollTop: $('#name').offset().top
-  }, 600);
-}
-
 var authenticate = function(req, res, next) {
   if(!req.isAuthenticated()) {
     res.redirect('/');
@@ -37,6 +31,7 @@ router.get('/new', authenticate, function(req, res, next) {
   var farmer = {
     name: String,
     email: String,
+    phone: String,
     address: {
       street: String,
       city: String,
@@ -76,7 +71,8 @@ router.put('/:id', function(req, res, next) {
     if (err) return next(err);
      else {
       farmer.name = req.body.name;
-      farmer.email = req.body.email;
+      farmer.local.email = req.body.email;
+      farmer.phone = req.body.phone;
       farmer.address.street = req.body.street;
       farmer.address.city = req.body.city;
       farmer.address.state = req.body.state;
