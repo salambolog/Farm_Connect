@@ -20,6 +20,7 @@ var strategy = new LocalStrategy(
         var newFarmer = new Farmer();
         newFarmer.name = req.body.name;
         newFarmer.farm_name = req.body.farm_name;
+        newFarmer.phone = req.body.phone;
         newFarmer.address.street = req.body.street;
         newFarmer.address.city = req.body.city;
         newFarmer.address.state = req.body.state;
