@@ -12,10 +12,23 @@ body {
 
 h1, h2, h3, label {
   color: white;
+  text-align: center;
 }
 
+h1 {
+  font-family: "Ultra", serif;
+  font-size: 4em;
+  color: #75142B;
+}
 h4 {
-  color: #fafafa;
+  color: white;
+}
+
+h5 {
+  font-family: 'Mrs Sheppards', cursive;
+  font-size: 3em;
+  text-align: center;
+  color: #9b1b57;
 }
 
 p {
@@ -28,6 +41,20 @@ a {
 
 .container {
   padding-bottom: 50px;
+}
+
+ul {
+  color: white;
+}
+
+.facts {
+  width: 550px;
+  background-color:
+}
+
+.shovel {
+  float: right;
+  margin-top: 180px;
 }
 
 .content {
@@ -50,8 +77,9 @@ a {
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav>li>a {
-  color: #fafafa;
+  color: white;
   font-size: 1.2em;
+  font-family: "Righteous", cursive;
 }
 
 .navbar-brand:hover{
@@ -124,5 +152,31 @@ a {
   color: #999090;
 }
 
+img {
+  opacity: .8;
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
 
+.or-spacer-vertical {
+  display:inline-block;
+  margin-top:100px; margin-left:100px; width:100px;
+  position:relative;
+}
+  .mask {
+    overflow: hidden;
+    width:20px;
+    height:200px;
+    //outline:1px solid pink;
+  }
+
+  &.left .mask: {
+    content:'';
+    display:block;
+    margin-left:-20px;
+    width:20px;
+    height:100%;
+    border-radius:12px / 125px;
+    box-shadow:0 0 8px black;
+  }
 
