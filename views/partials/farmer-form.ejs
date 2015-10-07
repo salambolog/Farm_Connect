@@ -70,20 +70,131 @@
                    <%= checked %> >
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <a href="/farmers/<%= farmer._id %>" class="btn btn-primary btn-lg">Back</a>
-          <button type="submit" class="btn btn-success btn-lg">Save</button>
+        <div class = "row">
+        <h2>Tell us what you're growing.</h2>
+          <hr>
+        <div class = "col-md-6">
+          <h3><b>Produce</b></h3>
+          <div class="form-group col-sm-3">
+            <label for="apples">Apples:</label>
+            <input class="form-control" type="checkbox" name="apples" id="apples" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="bananas">Bananas:</label>
+            <input class="form-control" type="checkbox" name="bananas" id="bananas" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="carrots">Carrots:</label>
+            <input class="form-control" type="checkbox" name="carrots" id="carrots" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="eggplant">Eggplant:</label>
+            <input class="form-control" type="checkbox" name="eggplant" id="eggplant" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="figs">Figs:</label>
+            <input class="form-control" type="checkbox" name="figs" id="figs" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="garlic">Garlic:</label>
+            <input class="form-control" type="checkbox" name="garlic" id="garlic" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="lettuce">Lettuce:</label>
+            <input class="form-control" type="checkbox" name="lettuce" id="lettuce" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="peppers">Peppers:</label>
+            <input class="form-control" type="checkbox" name="peppers" id="peppers" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="pumpkin">Pumpkin:</label>
+            <input class="form-control" type="checkbox" name="pumpkin" id="pumpkin" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="potatoes">Potatoes:</label>
+            <input class="form-control" type="checkbox" name="potatoes" id="potatoes" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="spinach">Spinach:</label>
+            <input class="form-control" type="checkbox" name="spinach" id="spinach" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="squash">Squash:</label>
+            <input class="form-control" type="checkbox" name="squash" id="squash" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="tomatoes">Tomatoes:</label>
+            <input class="form-control" type="checkbox" name="tomatoes" id="tomatoes" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="watermelon">Watermelon:</label>
+            <input class="form-control" type="checkbox" name="watermelon" id="watermelon" >
+          </div>
         </div>
-    </form>
+        <div class = "col-md-3">
+          <h3><b>Meat</b></h3>
+          <div class="form-group col-sm-3">
+            <label for="beef">Beef:</label>
+            <input class="form-control" type="checkbox" name="beef" id="beef" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="chicken">Chicken:</label>
+            <input class="form-control" type="checkbox" name="chicken" id="chicken" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="duck">Duck:</label>
+            <input class="form-control" type="checkbox" name="duck" id="duck" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="lamb">Lamb:</label>
+            <input class="form-control" type="checkbox" name="lamb" id="lamb" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="pork">Pork:</label>
+            <input class="form-control" type="checkbox" name="pork" id="pork" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="rabbit">Rabbit:</label>
+            <input class="form-control" type="checkbox" name="rabbit" id="rabbit" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="venison">Venison:</label>
+            <input class="form-control" type="checkbox" name="venison" id="venison" >
+          </div>
 
-        <form method="POST" action="/farmers/<%= farmer._id %>?_method=DELETE">
+        </div>
+        <div class = "col-md-3">
+         <h3><b>Other</b></h3>
+          <div class="form-group col-sm-3">
+            <label for="eggs">Eggs:</label>
+            <input class="form-control" type="checkbox" name="eggs" id="eggs" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="bread">Bread:</label>
+            <input class="form-control" type="checkbox" name="bread" id="bread" >
+          </div>
+          <div class="form-group col-sm-3">
+            <label for="milk">Milk:</label>
+            <input class="form-control" type="checkbox" name="milk" id="milk" >
+          </div>
+        </div>
+      </div>
+      <form method="POST" action="/farmers/<%= farmer._id %>?_method=DELETE">
             <div class="cancel col-md-6">
               <h3>Delete Account</h3>
               <button type="delete" class="btn btn-md btn-danger">Delete</button>
             </div>
         </form>
+      <div class="row">
+        <div class="col-md-3 col-md-offset-3">
+          <h3>Save Account Details</h3>
+          <a href="/farmers/<%= farmer._id %>" class="btn btn-primary btn-lg">Back</a>
+          <button type="submit" class="btn btn-success btn-lg">Save</button>
+        </div>
+    </form>
+
+
       </div>
   </div>
 </div>

@@ -16,7 +16,38 @@ var FarmerSchema = new Schema({
   },
   farm_name: String,
   details: {
-    products: [],
+    products: {
+      meat:{
+        beef: Boolean,
+        chicken: Boolean,
+        duck: Boolean,
+        lamb: Boolean,
+        pork: Boolean,
+        rabbit: Boolean,
+        venison: Boolean
+      },
+      produce:{
+        apples: Boolean,
+        bananas: Boolean,
+        carrots: Boolean,
+        eggplant: Boolean,
+        figs: Boolean,
+        garlic: Boolean,
+        lettuce: Boolean,
+        peppers: Boolean,
+        pumpkin: Boolean,
+        potatoes: Boolean,
+        spinach: Boolean,
+        squash: Boolean,
+        tomatoes: Boolean,
+        watermelon: Boolean
+      },
+      other: {
+        eggs: Boolean,
+        bread: Boolean,
+        milk: Boolean
+      }
+    },
     organic: Boolean
   }
 });
