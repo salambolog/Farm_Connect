@@ -1,39 +1,181 @@
-<div class= "container">
-<h1><%= title %></h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJZcpHfGvTwdAk5HNVPzctrm-l3qiv_4"
+  type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+      var geocoder;
+      var map;
+      function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(32.9605,-83.5);
+        var mapOptions = {
+          zoom: 7,
+          center: latlng
+        }
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      }
 
-<h5> "We pick it, you click it!" </h5>
+      function codeAddress(address) {
+        // var address = document.getElementById("address").value;
+        // var radius = document.getElementById("radius").value;
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+            });
+          } else {
+            alert("Geocode was not successful for the following reason: " + status);
+          }
+        });
+      }
 
+      // var marker, i;
 
+      // for (i = 0; i < locations.length; i++) {
+      //    marker = new google.maps.Marker({
+      //         position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+      //         map: map
+      //    });
+// fetch Places JSON from /data/places
+    // loop through and populate the map with markers
+      function fetchPlaces() {
+        // var infowindow =  new google.maps.InfoWindow({
+        //     content: ''
+        // });
+        $.ajax({
+            url: 'http://localhost:3000/farmers',
+            dataType: 'json',
+            success: function(farmers) {
+              for (i in farmers) {
+                var farmer = farmers[i];
+                // console.log(farmer);
+                var address = farmer.address.street + ' ' + farmer.address.city + ' ' +farmer.address.state + ' ' + farmer.address.zipcode;
+                codeAddress(address);
+              }
+            }
+        });
+    };
 
-<div class="imgWrap">
- <img src="./images/arrows.png">
-  <div class= "imgDescription">
-      <ul>
-<li> Locally grown food tastes and looks better. </li>
-<li> Local food is better for you. The shorter the time between the farm and your table, the less likely it is that nutrients will be lost.</li>
-<li> Local food is safe. There's a unique kind of assurance that comes from looking a farmer in the eye at farmers' market or driving by the fields where your food comes from.</li>
-      </ul>
-    </div>
-  </div>
+            //     places = response.places;
+            //     // loop through places and add markers
+            //     for (p in places) {
+            //         //create gmap latlng obj
+            //         tmpLatLng = new google.maps.LatLng( places[p].geo[0], places[p].geo[1]);
+            //         // make and place map maker.
+            //         var marker = new google.maps.Marker({
+            //             map: map,
+            //             position: tmpLatLng,
+            //             title : places[p].name + "<br>" + places[p].geo_name
+            //         });
+            //         bindInfoWindow(marker, map, infowindow, '<b>'+places[p].name + "</b><br>" + places[p].geo_name);
+            //         // not currently used but good to keep track of markers
+            //         markers.push(marker);
+            // }
+   // google.maps.event.addListener(marker, 'click', (function(marker, i) {
+   //      return function() {
+   //          infowindow.setContent(locations[i][0]);
+   //          infowindow.open(map, marker);
+   //      }
+   // })(marker, i));
+// }
 
-<div class="imgWrap_Shovel">
- <img src="./images/shovel.png">
-  <div class= "imgDescription_Shovel">
-    <ul>
-<li> Locally grown food tastes and looks better. </li>
-     </ul>
-    </div>
-  </div>
+  //        var origin = new google.maps.LatLng(55.930385, -3.118425),
+  //         destination = "Stockholm, Sweden",
+  //         service = new google.maps.DistanceMatrixService();
 
+  // service.getDistanceMatrix(
+  //     {
+  //         origins: [origin],
+  //         destinations: [destination],
+  //         travelMode: google.maps.TravelMode.DRIVING,
+  //         avoidHighways: false,
+  //         avoidTolls: false
+  //     },
+  //     callback
+  // );
 
+  // function callback(response, status) {
+  //     var orig = document.getElementById("orig"),
+  //         dest = document.getElementById("dest"),
+  //         dist = document.getElementById("dist");
 
+  //     if(status=="OK") {
+  //         orig.value = response.destinationAddresses[0];
+  //         dest.value = response.originAddresses[0];
+  //         dist.value = response.rows[0].elements[0].distance.text;
+  //     } else {
+  //         alert("Error: " + status);
+  //     }
+  // }
+  </script>
+  </head>
+  <body>
+    <div class= "container">
+      <h1><%= title %></h1>
 
+      <h5> "We pick it, you click it!" </h5>
 
-<div class="or-spacer-vertical left">
-  <div class="mask"></div>
+      <div class="imgWrap">
+       <img src="./images/arrows.png">
+        <div class= "imgDescription">
+            <ul>
+      <li> Locally grown food tastes and looks better. </li>
+      <li> Local food is better for you. The shorter the time between the farm and your table, the less likely it is that nutrients will be lost.</li>
+      <li> Local food is safe. There's a unique kind of assurance that comes from looking a farmer in the eye at farmers' market or driving by the fields where your food comes from.</li>
+            </ul>
+          </div>
+        </div>
+
+      <div class="imgWrap_Shovel">
+       <img src="./images/shovel.png">
+        <div class= "imgDescription_Shovel">
+          <ul>
+      <li> Locally grown food tastes and looks better. </li>
+           </ul>
+          </div>
+        </div>
+
+      <div class="or-spacer-vertical left">
+        <div class="mask"></div>
+      </div>
+
+      <h2>What are the benefits?</h2>
 </div>
 
-<h2>What are the benefits?</h2>
+  <div class = "wrapper">
+    <div class = "row">
+      <div class = "col-lg-4 col-lg-offset-4">
+        <!-- MAYBE SOME CSS ANIMATION HERE -->
+        <h5>Search for farmers near you by inputing your address here:</h5>
+      </div>
+      <div class = "col-lg-2 col-lg-offset-1">
+        <h5>To narrow your search, give us a radius:</h5>
+      </div>
+    </div>
+    <div class ="row">
+      <div class = "col-lg-5 col-lg-offset-4">
+        <input id="address" class = "form-control" type="search" placeholder="Coleman River Rd, Clayton, GA 30525">
+      </div>
+      <div class = "dropdown col-lg-2">
+       <input id="radius" class = "form-control" type="number" placeholder="15 miles">
+      </div>
+      <div class = "col-lg-1">
+       <button class="btn btn-primary" type="button" onclick="initialize(), codeAddress(document.getElementById('address').value)">Find a farmer!</button>
 
+      </div>
+    </div>
+  </div>
+  <!-- TODO MAP NEEDS PADDING -->
+  <div id="map" class = "col-lg-offset-1" style="width: 450px; height: 500px;"></div>
+</body>
+<!-- CALL FUNCTION TO LOAD MAP -->
+</html>
 
-</div>
+<!-- OPTIONS FOR 1)DO SCALING 2)FIND DISTANCE FROM ADDRESS AND SORT -->

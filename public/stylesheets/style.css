@@ -6,9 +6,10 @@ body {
   position: absolute;
   top: 0; bottom: 0; left: 0; right: 0;
   background: url('../images/farm.jpg');
-  background-color: rgba(202,195,193, 0.6);
   background-blend-mode: screen;
+  background-repeat: no-repeat;
 }
+
 
 h1, h2, h3, label {
   color: white;
@@ -62,6 +63,7 @@ ul {
   height: auto !important;
   position: relative;
   margin: 0 auto 0;
+  background-color: rgba(202,195,193, 0.6);
 }
 
 /**********************/

@@ -21,6 +21,7 @@ var FarmerSchema = new Schema({
   }
 });
 
+
 FarmerSchema.methods.encrypt = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
 };
