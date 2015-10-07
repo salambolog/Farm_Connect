@@ -1,82 +1,94 @@
-<div class="form-group">
-  <label for="name">Name</label>
-  <input type="text"
-         class="form-control"
-         id="name"
-         name="name"
-         value="<%= farmer.name %>"
-         required>
+<div class="wrapper">
+  <div class="authform">
+    <div class="row">
+      <form class="form" method="POST" action="/farmers/<%= farmer._id %>?_method=PUT">
+        <div class="row">
+          <h4>PLEASE NOTE: All fields are required.</h4>
+          <div class="col-md-6">
+            <h3>Information</h3>
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input class="form-control well" type="text" name="name" id="name"
+                     value="<%= farmer.name %>"required autofocus>
+            </div>
+
+            <div class="form-group">
+              <label for="farm_name">Farm Name:</label>
+              <input class="form-control" type="text" name="farm_name" id="farm_name"
+                     value="<%= farmer.farm_name %>" required>
+            </div>
+
+           <div class="form-group">
+              <label for="email">Email:</label>
+              <input class="form-control" type="email" name="email" id="email"
+                     value="<%= farmer.local.email %>" placeholder="example@domain.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="farm_name">Phone Number:</label>
+              <input class="form-control" type="tel" name="phone" id="phone"
+                     value="<%= farmer.phone %>" pattern="^\d{3}-\d{3}-\d{4}$"
+                     placeholder="XXX-XXX-XXXX" required>
+            </div>
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+            <h3>Address</h3>
+              <label for="street">Street:</label>
+              <input class="form-control" type="text" name="street" id="street"
+                     value="<%= farmer.address.street %>" required>
+            </div>
+
+            <div class="form-group">
+              <label for="city">city:</label>
+              <input class="form-control" type="text" name="city" id="city"
+                     value="<%= farmer.address.city %>" required>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="state">State:</label>
+                  <input class="form-control" type="text" name="state" id="state"
+                         value="<%= farmer.address.state %>" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="zipcode">Zipcode:</label>
+                  <input class="form-control" type="text" pattern="\d{5,5}?"
+                         title="Zipcode must be five digits. Numbers only" name="zipcode" id="zipcode"
+                         value="<%= farmer.address.zipcode %>" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-sm-3">
+              <label for="organic">Organic:</label>
+              <input class="form-control" type="checkbox" name="organic" id="organic"
+                     <%= checked %> >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <a href="/farmers/<%= farmer._id %>" class="btn btn-primary btn-lg">Back</a>
+            <button type="submit" class="btn btn-success btn-lg">Save</button>
+          </div>
+      </form>
+
+          <form method="POST" action="/farmers/<%= farmer._id %>?_method=DELETE">
+              <div class="cancel col-md-6">
+                <h3>Delete Account</h3>
+                <button type="delete" class="btn btn-md btn-danger">Delete</button>
+              </div>
+          </form>
+        </div>
+    </div>
+  </div>
 </div>
 
-<div class="form-group">
-  <label for="farm_name">Farm Name</label>
-  <input type="text"
-         class="form-control"
-         id="farm_name"
-         name="farm_name"
-         value="<%= farmer.farm_name %>"
-         required>
-</div>
 
-<div class="form-group">
-  <label for="email">Email</label>
-  <input type="text"
-         class="form-control"
-         id="email"
-         name="email"
-         value="<%= farmer.email %>"
-         required>
-</div>
 
-<div class="form-group">
-  <h3>Address: </h3>
-  <label for="street">Street</label>
-  <input type="text"
-
-         class="form-control"
-         id="street"
-         name="street"
-         value="<%= farmer.address.street %>"
-         required>
-</div>
-
-<div class="form-group">
-  <label for="city">City</label>
-  <input type="text"
-
-         class="form-control"
-         id="city"
-         name="city"
-         value="<%= farmer.address.city %>"
-         required>
-</div>
-
-<div class="form-group">
-  <label for="state">State</label>
-  <input type="text"
-         class="form-control"
-         id="state"
-         name="state"
-         value="<%= farmer.address.state %>"
-         required>
-</div>
-
-<div class="form-group">
-  <label for="zipcode">Zipcode</label>
-  <input type="text"
-         pattern="\d{5,5}?"
-         class="form-control"
-         id="zipcode"
-         name="zipcode"
-         value="<%= farmer.address.zipcode %>"
-         required>
-</div>
-
-<div class="form-group">
-  <label for="organic">Organic</label>
-  <input type="checkbox"
-         class="form-control"
-         id="organic"
-         name="organic"
-         <%= checked %> >
-</div>
