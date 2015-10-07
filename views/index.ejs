@@ -177,7 +177,20 @@
       <!-- TODO MAP NEEDS PADDING -->
       <!-- OPTIONS FOR 1)DO SCALING 2)FIND DISTANCE FROM ADDRESS AND SORT -->
       <!-- CALL FUNCTION TO LOAD MAP -->
-      <div id="map" class = "col-lg-offset-1" style="width: 450px; height: 500px;"></div>
+      <div class = 'row'>
+        <div id="map" class = "col-lg-offset-1 col-lg-5" style="width: 450px; height: 500px;"></div>
+        <div class = "col-lg-offset-1 col-lg-5">
+          <ul>
+            <%farmers.forEach(function(f){ %>
+              <li><a href ='/farmer/<%f._id %>'> <%= f.farm_name%></a> </li>
+              <li><%=f.address.street %></li>
+              <li><%=f.address.city %></li>
+              <li><%=f.address.state %></li>
+              <li><%=f.address.zipcode %></li>
+            <%});%>
+          </ul>
+        </div>
+        </div>
     </div>
   </body>
 </html>
