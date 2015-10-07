@@ -187,13 +187,49 @@ img {
 
 .imgWrap {
   position: relative;
-  height: 200px;
+  height: 250px;
   width: 257px;
+  border-radius: .25px;
 }
 
 .imgDescription {
   /*position: absolute;*/
   float: right;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 350px;
+  padding: 2px 2px 2px 2px;
+
+
+  visibility: hidden;
+  opacity: 0;
+  transition-delay: .2s; /* delays for 1 second */
+  -webkit-transition-delay: .2s; /* for Safari & Chrome */
+  -webkit-transition: visibility opacity 0.9s;
+}
+
+.imgWrap:hover .imgDescription {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+.imgWrap_Shovel {
+  position: right;
+  float: right;
+
+  height: 250px;
+  width: 257px;
+}
+
+.imgDescription_Shovel {
+  /*position: absolute;*/
+  float: left;
   top: 0;
   bottom: 0;
   left: 0;
@@ -210,7 +246,7 @@ img {
   -webkit-transition: visibility opacity 0.9s;
 }
 
-.imgWrap:hover .imgDescription {
+.imgWrap_Shovel:hover .imgDescription_Shovel {
   visibility: visible;
   opacity: 1;
 }
