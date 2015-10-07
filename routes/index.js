@@ -6,10 +6,17 @@ var Farmer = require('../models/farmer');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  Farmer.find({}, function(err, farmers) {
+  if (err) return console.log(err);
+  else{
   res.render('index', { title: 'Farm Connect',
-                        farmer: currentFarmer
+                        farmer: currentFarmer,
+                        farmers : farmers
+    });
+    }
   });
 });
+
 
 // GET Farmers
 // router.get('/farmers', function(req, res, next){
