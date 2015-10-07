@@ -6,7 +6,9 @@ var Farmer = require('../models/farmer');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Farm Connect' });
+  res.render('index', { title: 'Farm Connect',
+                        farmer: currentFarmer
+  });
 });
 
 // GET Farmers
