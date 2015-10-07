@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJZcpHfGvTwdAk5HNVPzctrm-l3qiv_4"
   type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script>
       var geocoder;
       var map;
@@ -19,9 +20,9 @@
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
       }
 
-      function codeAddress() {
-        var address = document.getElementById("address").value;
-        var radius = document.getElementById("radius").value;
+      function codeAddress(address) {
+        // var address = document.getElementById("address").value;
+        // var radius = document.getElementById("radius").value;
         geocoder.geocode( { 'address': address}, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
@@ -44,35 +45,39 @@
       //    });
 // fetch Places JSON from /data/places
     // loop through and populate the map with markers
-    var fetchPlaces = function() {
+      function fetchPlaces() {
         // var infowindow =  new google.maps.InfoWindow({
         //     content: ''
         // });
-        jQuery.ajax({
-            url : 'http://127.0.0.1:3000/farmers',
-            dataType : 'json',
-            success : function(response) {
-
-                if (response.status == 'OK') {
-                    places = response.places;
-                    // loop through places and add markers
-                    for (p in places) {
-                        //create gmap latlng obj
-                        tmpLatLng = new google.maps.LatLng( places[p].geo[0], places[p].geo[1]);
-                        // make and place map maker.
-                        var marker = new google.maps.Marker({
-                            map: map,
-                            position: tmpLatLng,
-                            title : places[p].name + "<br>" + places[p].geo_name
-                        });
-                        bindInfoWindow(marker, map, infowindow, '<b>'+places[p].name + "</b><br>" + places[p].geo_name);
-                        // not currently used but good to keep track of markers
-                        markers.push(marker);
-                    }
-                }
+        $.ajax({
+            url: 'http://localhost:3000/farmers',
+            dataType: 'json',
+            success: function(farmers) {
+              for (i in farmers) {
+                var farmer = farmers[i];
+                // console.log(farmer);
+                var address = farmer.address.street + ' ' + farmer.address.city + ' ' +farmer.address.state + ' ' + farmer.address.zipcode;
+                codeAddress(address);
+              }
             }
         });
     };
+
+            //     places = response.places;
+            //     // loop through places and add markers
+            //     for (p in places) {
+            //         //create gmap latlng obj
+            //         tmpLatLng = new google.maps.LatLng( places[p].geo[0], places[p].geo[1]);
+            //         // make and place map maker.
+            //         var marker = new google.maps.Marker({
+            //             map: map,
+            //             position: tmpLatLng,
+            //             title : places[p].name + "<br>" + places[p].geo_name
+            //         });
+            //         bindInfoWindow(marker, map, infowindow, '<b>'+places[p].name + "</b><br>" + places[p].geo_name);
+            //         // not currently used but good to keep track of markers
+            //         markers.push(marker);
+            // }
    // google.maps.event.addListener(marker, 'click', (function(marker, i) {
    //      return function() {
    //          infowindow.setContent(locations[i][0]);
@@ -130,7 +135,7 @@
        <input id="radius" class = "form-control" type="number" placeholder="15 miles">
       </div>
       <div class = "col-lg-1">
-       <button class="btn btn-primary" type="button" onclick="initialize(), codeAddress()">Find a farmer!</button>
+       <button class="btn btn-primary" type="button" onclick="initialize(), codeAddress(document.getElementById('address').value)">Find a farmer!</button>
 
       </div>
     </div>

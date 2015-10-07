@@ -1,7 +1,8 @@
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
-var Farmer = require('../models/farmer')
+var Farmer = require('../models/farmer');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
