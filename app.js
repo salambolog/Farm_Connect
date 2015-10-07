@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
-
+var sass = require('node-sass');
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
@@ -19,15 +19,21 @@ var farmers = require('./routes/farmers');
 
 var app = express();
 
-// Connect to database
-mongoose.connect('mongodb://localhost/farmers');
+// Connect to database - Heroku setup
+if (app.get('env') === 'development') {
+  mongoose.connect('mongodb://localhost/farmers');
+}
+else {
+  mongoose.connect(process.env.MONGOLAB_URI);
+}
+
 mongoose.connection.on('error', function(err) {
-  console.error('MongoDB connection error: ' + err);
-  process.exit(-1);
-  }
-);
+ console.error('MongoDB connection error: ' + err);
+ process.exit(-1);
+});
+
 mongoose.connection.once('open', function() {
-  console.log("Mongoose has connected to MongoDB!");
+ console.log("Mongoose has connected to MongoDB!");
 });
 
 // view engine setup
@@ -46,6 +52,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ secret: 'SASSWatchFarm' }));

@@ -2,8 +2,8 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJZcpHfGvTwdAk5HNVPzctrm-l3qiv_4"
   type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -117,7 +117,31 @@
   </script>
   </head>
   <body>
-  <div class = "container">
+    <div class= "container">
+      <h1><%= title %></h1>
+
+      <h5> "We pick it, you click it!" </h5>
+      <img src="./images/arrows.png">
+      <div class= "shovel">
+      <img src="./images/shovel.png">
+      </div>
+
+      <div class="or-spacer-vertical left">
+        <div class="mask"></div>
+      </div>
+
+      <h2>What are the benefits?</h2>
+
+      <div class= "facts">
+        <ul>
+      <li> Locally grown food tastes and looks better. </li>
+      <li> Local food is better for you. The shorter the time between the farm and your table, the less likely it is that nutrients will be lost.</li>
+      <li> Local food is safe. There's a unique kind of assurance that comes from looking a farmer in the eye at farmers' market or driving by the fields where your food comes from.</li>
+        </ul>
+      </div>
+    </div>
+
+  <div class = "wrapper">
     <div class = "row">
       <div class = "col-lg-4 col-lg-offset-4">
         <!-- MAYBE SOME CSS ANIMATION HERE -->
@@ -147,4 +171,6 @@
 </html>
 
 <!-- OPTIONS FOR 1)DO SCALING 2)FIND DISTANCE FROM ADDRESS AND SORT -->
+
+
 

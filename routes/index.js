@@ -4,9 +4,11 @@ var router = express.Router();
 var Farmer = require('../models/farmer');
 
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Farm Connect' });
+  res.render('index', { title: 'Farm Connect',
+                        farmer: currentFarmer });
 });
 
 // GET Farmers
@@ -36,6 +38,7 @@ function signupAuthenticate(req, res, next) {
     failureRedirect : '/signup',
     failureFlash : true
   });
+
   return signUpStrategy(req, res, next);
 }
 

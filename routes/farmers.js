@@ -19,10 +19,11 @@ var authenticate = function(req, res, next) {
 }
 
 // INDEX
-router.get('/', authenticate, function(req, res, next) {
+router.get('/', function(req, res, next) {
   console.log('FARMERS:index');
-  var farmers = global.currentFarmer;
-  res.render('farmers/index', { farmers: farmers, message: req.flash() })
+  res.render('index', { title: 'Farm Connect',
+                        farmer: currentFarmer
+   });
 });
 
 // NEW
@@ -30,6 +31,7 @@ router.get('/new', authenticate, function(req, res, next) {
   var farmer = {
     name: String,
     email: String,
+    phone: String,
     address: {
       street: String,
       city: String,
@@ -39,79 +41,61 @@ router.get('/new', authenticate, function(req, res, next) {
     farm_name: String,
     details: {
       products: [],
-      organic: Boolean
+      organic: false
     }
   };
-  res.render('farmers/new', { farmer: farmer, message: req.flash() });
+  res.render('farmers/new', { farmer: farmer, checked: '', message: req.flash() });
 });
 
 // SHOW
 router.get('/:id', authenticate, function(req, res, next) {
   var farmer = currentFarmer;
   if (!farmer) return next(makeError(res, 'Document not found', 404));
-  res.render('farmers/show', { farmer: farmer, message: req.flash() } );
+  var checked = farmer.organic ? 'checked' : '';
+  res.render('farmers/show', { farmer: farmer, checked: checked, message: req.flash() } );
 });
 
 // EDIT
 router.get('/:id/edit', authenticate, function(req, res, next) {
   var farmer = currentFarmer;
   if (!farmer) return next(makeError(res, 'Document not found', 404));
-  res.render('farmers/edit', { farmer: farmer, message: req.flash() } );
+  var checked = farmer.details.organic ? 'checked' : '';
+  res.render('farmers/edit', { farmer: farmer, checked: checked, message: req.flash() } );
 });
 
-// CREATE
-// router.post('/', authenticate, function(req, res, next) {
-//   // var farmer = {
-//   //   name: req.body.name,
-//   //   email: req.body.email,
-//   //   address: {
-//   //     street: req.body.street,
-//   //     city: req.body.city,
-//   //     state: req.body.state,
-//   //     zipcode: req.body.zipcode
-//   //   },
-//   //   farm_name: req.body.farm_name,
-//   //   details: {
-//   //     organic: req.body.organic ? true : false
-//   //   }
-//   // };
-//   currentFarmer.save(function (err) {
-//     if (err) return next(err);
-//     // Check redirect
-//     res.redirect('/farmers');
-//   });
-// });
 
 // UPDATE
-router.put('/:id', authenticate, function(req, res, next) {
-  var farmer = currentFarmer;
-  if (!farmer) return next(makeError(res, 'Document not found', 404));
-  else {
-    farmer.name = req.body.name;
-    farmer.email = req.body.email;
-    farmer.address.street = req.body.street;
-    farmer.address.city = req.body.city;
-    farmer.address.state = req.body.state;
-    farmer.address.zipcode = req.body.zipcode;
-    farmer.farm_name = req.body.farm_name;
-    farmer.details.organic = req.body.organic ? true : false;
+router.put('/:id', function(req, res, next) {
+  if (!currentFarmer) return next(makeError(res, 'Document not found', 404));
+  Farmer.findById(req.params.id, function(err, farmer) {
+    if (err) return next(err);
+     else {
+      farmer.name = req.body.name;
+      farmer.local.email = req.body.email;
+      farmer.phone = req.body.phone;
+      farmer.address.street = req.body.street;
+      farmer.address.city = req.body.city;
+      farmer.address.state = req.body.state;
+      farmer.address.zipcode = req.body.zipcode;
+      farmer.farm_name = req.body.farm_name;
+      farmer.details.organic = req.body.organic ? true : false;
 
-    currentFarmer.save(function(err) {
-      if (err) return next(err);
-      // Check redirect
-      res.redirect('/farmers');
-    });
+      farmer.save(function(err) {
+        if (err) return next(err);
+        // Redirect to profile after update
+        res.redirect('/farmers/show');
+      });
   }
+  });
+
 });
 
 // DESTROY
 router.delete('/:id', authenticate, function(req, res, next) {
-  var farmer = currentFarmer;
-  if (!farmer) return next(makeError(res, 'Document not found', 404));
-  // TODO: May need to also delete/destroy 'user' session
-  farmer.findByIdAndRemove(farmer, function(err) {
+  if (!currentFarmer) return next(makeError(res, 'Document not found', 404));
+    Farmer.findByIdAndRemove(currentFarmer, function(err, res) {
     if (err) return next(err);
-    res.redirect('/farmers');
+    res.redirect('/');
   });
 });
 

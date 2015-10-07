@@ -17,9 +17,11 @@
     "express-ejs-layouts": "^1.1.0",
     "express-session": "^1.11.3",
     "jquery": "^2.1.4",
+    "method-override": "^2.3.5",
     "mongoose": "^4.1.9",
     "morgan": "~1.6.1",
     "node-bourbon": "^4.2.3",
+    "node-sass": "^3.3.3",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0",
     "serve-favicon": "~2.3.0"

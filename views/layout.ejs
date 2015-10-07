@@ -4,8 +4,7 @@
     <% include partials/head %>
     <!-- put API stuff -->
   </head>
-
-  <body class="container-fluid">
+  <body class="content">
     <header>
       <% include partials/header %>
     </header>
@@ -14,8 +13,19 @@
       <%- body %>
     </main>
 
-    <footer>
-      <% include partials/footer %>
-    </footer>
+
+    <div class="push"></div>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    function scrollPage() {
+      $('html, body').animate({
+        scrollTop: $('#name').offset().top
+        }, 600);
+    }
+    scrollPage();
+    </script>
   </body>
+  <footer class="footer">
+      <% include partials/footer %>
+  </footer>
 </html>

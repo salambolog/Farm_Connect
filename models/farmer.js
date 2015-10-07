@@ -7,6 +7,7 @@ var FarmerSchema = new Schema({
   local :{ email: String,
            password: String
          },
+  phone: String,
   address: {
     street: String,
     city: String,
