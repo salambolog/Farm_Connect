@@ -1,13 +1,13 @@
 <div class="container">
-<div>
-  <h3>See farmer</h3>
-  <p><b>Farmer: </b><%= farmer.name %></p>
-  <p><b>Farm Name: </b><%= farmer.farm_name %></p>
-  <p><b>Phone: </b><%= farmer.phone %></p>
-  <p><b>Location: </b><%= farmer.address.street %> <%= farmer.address.city %>, <%= farmer.address.state %> <%= farmer.address.zipcode %></p>
-  <p><b>Organic: </b><%= farmer.details.organic %></p>
-</div>
+  <div>
+    <h3>See farmer</h3>
+    <p><b>Farmer: </b><%= farmer.name %></p>
+    <p><b>Farm Name: </b><%= farmer.farm_name %></p>
+    <p><b>Phone: </b><%= farmer.phone %></p>
+    <p><b>Location: </b><%= farmer.address.street %> <%= farmer.address.city %>, <%= farmer.address.state %> <%= farmer.address.zipcode %></p>
+    <p><b>Organic: </b><%= farmer.details.organic %></p>
+  </div>
 
-<a href="/farmers" class="btn btn-primary">Back</a>
-<a href="/farmers/<%= farmer._id %>/edit" class="btn btn-danger">Edit your details</a>
+  <a href="/farmers" class="btn btn-primary">Back</a>
+  <a href="/farmers/<%= farmer._id %>/edit" class="btn btn-danger">Edit your details</a>
 </div>

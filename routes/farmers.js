@@ -93,8 +93,7 @@ router.put('/:id', function(req, res, next) {
 // DESTROY
 router.delete('/:id', authenticate, function(req, res, next) {
   if (!currentFarmer) return next(makeError(res, 'Document not found', 404));
-  // TODO: May need to also delete/destroy 'user' session
-  Farmer.findByIdAndRemove(currentFarmer, function(err) {
+    Farmer.findByIdAndRemove(currentFarmer, function(err, res) {
     if (err) return next(err);
     res.redirect('/');
   });
