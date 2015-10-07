@@ -5,9 +5,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJZcpHfGvTwdAk5HNVPzctrm-l3qiv_4"
-  type="text/javascript"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script>
+    type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
       var geocoder;
       var map;
       function initialize() {
@@ -50,18 +50,18 @@
         //     content: ''
         // });
         $.ajax({
-            url: 'http://localhost:3000/farmers',
-            dataType: 'json',
-            success: function(farmers) {
-              for (i in farmers) {
-                var farmer = farmers[i];
-                // console.log(farmer);
-                var address = farmer.address.street + ' ' + farmer.address.city + ' ' +farmer.address.state + ' ' + farmer.address.zipcode;
-                codeAddress(address);
-              }
+          url: 'http://localhost:3000/farmers',
+          dataType: 'json',
+          success: function(farmers) {
+            for (i in farmers) {
+              var farmer = farmers[i];
+              // console.log(farmer);
+              var address = farmer.address.street + ' ' + farmer.address.city + ' ' +farmer.address.state + ' ' + farmer.address.zipcode;
+              codeAddress(address);
             }
+          }
         });
-    };
+      };
 
             //     places = response.places;
             //     // loop through places and add markers
@@ -114,7 +114,7 @@
   //         alert("Error: " + status);
   //     }
   // }
-  </script>
+    </script>
   </head>
   <body>
     <div class= "container">
@@ -123,33 +123,33 @@
 
         <h5> "We pick it, you click it!" </h5>
 
-         <div class="col-xs-6">
-    <div class="imgWrap">
-       <img src="./images/arrows.png">
-        <div class= "imgDescription">
-            <ul>
-              <li> Locally grown food tastes and looks better. </li>
-              <li> Local food is better for you. The shorter the time between the farm and your table, the less likely it is that nutrients will be lost.</li>
-              <li> Local food is safe. There's a unique kind of assurance that comes from looking a farmer in the eye at farmers' market or driving by the fields where your food comes from.</li>
-            </ul>
+        <div class="col-xs-6">
+          <div class="imgWrap">
+            <img src="./images/arrows.png">
+            <div class= "imgDescription">
+              <ul>
+                <li> Locally grown food tastes and looks better. </li>
+                <li> Local food is better for you. The shorter the time between the farm and your table, the less likely it is that nutrients will be lost.</li>
+                <li> Local food is safe. There's a unique kind of assurance that comes from looking a farmer in the eye at farmers' market or driving by the fields where your food comes from.</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-<div class="col-xs-6">
-      <div class="imgWrap_Shovel">
-       <img src="./images/shovel.png">
-        <div class= "imgDescription_Shovel">
-          <ul>
-      <li> Farmers should think carefully about their operations and which opportunities might suit them best.</li>
-      <li> Marketing takes time and resources although it can bring higher prices. </li>
-      <li> With Farm connect, farmers can both strengthen their communities and their businesses</li>
-           </ul>
+        <div class="col-xs-6">
+          <div class="imgWrap_Shovel">
+           <img src="./images/shovel.png">
+            <div class= "imgDescription_Shovel">
+              <ul>
+                <li> Farmers should think carefully about their operations and which opportunities might suit them best.</li>
+                <li> Marketing takes time and resources although it can bring higher prices. </li>
+                <li> With Farm connect, farmers can both strengthen their communities and their businesses</li>
+              </ul>
+            </div>
           </div>
         </div>
-        </div>
-        <div class="or-spacer-vertical left">
-          <div class="mask"></div>
-        </div>
+          <div class="or-spacer-vertical left">
+            <div class="mask"></div>
+          </div>
       </div>
     </div>
 
@@ -160,19 +160,18 @@
           <h5>Search for farmers near you by inputing your address here:</h5>
         </div>
         <div class = "col-lg-2 col-lg-offset-1">
-          <h5>To narrow your search, give us a radius:</h5>
-        </div>
+            <h5>To narrow your search, give us a radius:</h5>
+          </div>
       </div>
       <div class ="row">
         <div class = "col-lg-5 col-lg-offset-1">
           <input id="address" class = "form-control" type="search" placeholder="Coleman River Rd, Clayton, GA 30525">
         </div>
         <div class = "dropdown col-lg-2">
-         <input id="radius" class = "form-control" type="number" placeholder="15 miles">
+          <input id="radius" class = "form-control" type="number" placeholder="15 miles">
         </div>
-      <div class = "col-lg-1">
-       <button class="btn btn-primary" type="button" onclick="initialize(), codeAddress(document.getElementById('address').value), fetchPlaces()">Find a farmer!</button>
-
+        <div class = "col-lg-1">
+          <button class="btn btn-primary" type="button" onclick="initialize(), codeAddress(document.getElementById('address').value), fetchPlaces()">Find a farmer!</button>
         </div>
       </div>
       <!-- TODO MAP NEEDS PADDING -->
