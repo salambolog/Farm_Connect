@@ -13,19 +13,19 @@ h1, h2, h3, label {
 }
 
 h1 {
-  font-family: "Amaranth" sans-serif;
+  font-family: "Ultra", serif;
   font-size: 4em;
   color: #75142B;
 }
 h4 {
-  color: #fafafa;
+  color: white;
 }
 
 h5 {
   font-family: 'Mrs Sheppards', cursive;
   font-size: 3em;
   text-align: center;
-  color: white;
+  color: #9b1b57;
 }
 
 p {
@@ -67,8 +67,9 @@ ul {
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav>li>a {
-  color: #fafafa;
+  color: white;
   font-size: 1.2em;
+  font-family: "Righteous", cursive;
 }
 
 .navbar-brand:hover{
