@@ -28,7 +28,29 @@ var strategy = new LocalStrategy(
         newFarmer.address.organic = req.body.organic;
         newFarmer.local.email = email;
         newFarmer.local.password = newFarmer.encrypt(password);
-
+        newFarmer.details.products.produce.apples = req.body.apples ? true : false;
+        newFarmer.details.products.produce.bananas = req.body.bananas ? true : false;
+        newFarmer.details.products.produce.carrots = req.body.carrots ? true : false;
+        newFarmer.details.products.produce.eggplants = req.body.eggplants ? true : false;
+        newFarmer.details.products.produce.figs = req.body.figs ? true : false;
+        newFarmer.details.products.produce.garlic = req.body.garlic ? true : false;
+        newFarmer.details.products.produce.lettuce = req.body.lettuce ? true : false;
+        newFarmer.details.products.produce.peppers = req.body.peppers ? true : false;
+        newFarmer.details.products.produce.pumpkin = req.body.pumpkin ? true : false;
+        newFarmer.details.products.produce.potatoes = req.body.potatoes ? true : false;
+        newFarmer.details.products.produce.spinach = req.body.spinach ? true : false;
+        newFarmer.details.products.produce.tomatoes = req.body.tomatoes ? true : false;
+        newFarmer.details.products.produce.watermelon = req.body.watermelon ? true : false;
+        newFarmer.details.products.meat.beef = req.body.beef ? true : false;
+        newFarmer.details.products.meat.chicken = req.body.chicken ? true : false;
+        newFarmer.details.products.meat.duck = req.body.duck ? true : false;
+        newFarmer.details.products.meat.lamb = req.body.lamb ? true : false;
+        newFarmer.details.products.meat.pork = req.body.pork ? true : false;
+        newFarmer.details.products.meat.rabbit = req.body.rabbit ? true : false;
+        newFarmer.details.products.meat.venison = req.body.venison ? true : false;
+        newFarmer.details.products.other.eggs = req.body.eggs ? true : false;
+        newFarmer.details.products.other.bread = req.body.bread ? true : false;
+        newFarmer.details.products.other.milk = req.body.milk ? true : false;
         console.log('Full request: ' + JSON.stringify(req.body));
 
         newFarmer.save(function(err) {

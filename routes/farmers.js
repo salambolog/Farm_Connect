@@ -52,8 +52,8 @@ router.get('/:id', function(req, res, next) {
   Farmer.findById(req.params.id, function(err, farmer) {
     var farmer = currentFarmer;
     // return next(makeError(res, 'Document not found', 404));
-    var checked = farmer.organic ? 'checked' : '';
-    res.render('farmers/show', { farmer: farmer, checked: checked, message: req.flash() } );
+    // var checked = farmer.organic ? 'checked' : '';
+    res.render('farmers/show', { farmer: farmer, message: req.flash() } );
   });
 });
 
@@ -90,7 +90,7 @@ router.put('/:id', function(req, res, next) {
       farmer.details.organic = req.body.organic ? true : false;
       farmer.details.products.produce.apples = req.body.apples ? true : false;
       farmer.details.products.produce.bananas = req.body.bananas ? true : false;
-      farmer.details.products.produce.carrolts = req.body.carrolts ? true : false;
+      farmer.details.products.produce.carrots = req.body.carrots ? true : false;
       farmer.details.products.produce.eggplants = req.body.eggplants ? true : false;
       farmer.details.products.produce.figs = req.body.figs ? true : false;
       farmer.details.products.produce.garlic = req.body.garlic ? true : false;
