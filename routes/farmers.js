@@ -21,7 +21,7 @@ var authenticate = function(req, res, next) {
 // INDEX
 router.get('/', function(req, res, next) {
   console.log('FARMERS:index');
-  res.render('index', { title: 'Farm Connect',
+  res.render('index', { title: 'FARM CONNECT',
                         farmer: currentFarmer
    });
 });
@@ -48,12 +48,20 @@ router.get('/new', authenticate, function(req, res, next) {
 });
 
 // SHOW
-router.get('/:id', authenticate, function(req, res, next) {
-  var farmer = currentFarmer;
-  if (!farmer) return next(makeError(res, 'Document not found', 404));
-  var checked = farmer.organic ? 'checked' : '';
-  res.render('farmers/show', { farmer: farmer, checked: checked, message: req.flash() } );
+router.get('/:id', function(req, res, next) {
+  Farmer.findById(req.params.id, function(err, farmer) {
+    // return next(makeError(res, 'Document not found', 404));
+    var checked = farmer.organic ? 'checked' : '';
+    res.render('farmers/show', { farmer: farmer, checked: checked, message: req.flash() } );
+  });
 });
+
+// router.get('/farmers', function(req, res, next){
+//   Farmer.find({}, function(err, farmers){
+//     if(err) return next(err);
+//     res.send(farmers);
+//   });
+// });
 
 // EDIT
 router.get('/:id/edit', authenticate, function(req, res, next) {
