@@ -1,12 +1,52 @@
 <h2>PROFILE</h2>
 <div class="container">
   <div class="profile">
-    <div>
-      <p><b>Farmer: </b><%= farmer.name %></p>
-      <p><b>Farm Name: </b><%= farmer.farm_name %></p>
-      <p><b>Phone: </b><%= farmer.phone %></p>
-      <p><b>Organic: </b><%= farmer.details.organic %></p>
-    </div>
+    <div class = "row">
+      <div class = "col-md-3">
+        <h3>Profile</h3>
+        <p><b>Farmer: </b><%= farmer.name %></p>
+        <p><b>Farm Name: </b><%= farmer.farm_name %></p>
+        <p><b>Phone: </b><%= farmer.phone %></p>
+        <p><b>Organic: </b><%= farmer.details.organic %></p>
+      </div>
+      <div class = "col-md-3">
+        <h3>Produce:</h3>
+        <p><b>Apples: </b><%= farmer.details.products.produce.apples %></p>
+        <p><b>Bananas: </b><%= farmer.details.products.produce.bananas %></p>
+        <p><b>Carrots: </b><%= farmer.details.products.produce.carrots %></p>
+        <p><b>Eggplant: </b><%= farmer.details.products.produce.eggplant %></p>
+        <p><b>Figs: </b><%= farmer.details.products.produce.figs %></p>
+        <p><b>Garlic: </b><%= farmer.details.products.produce.garlic %></p>
+        <p><b>Lettuce: </b><%= farmer.details.products.produce.lettuce %></p>
+        <p><b>Peppers: </b><%= farmer.details.products.produce.peppers %></p>
+        <p><b>Pumpkin: </b><%= farmer.details.products.produce.pumpkin %></p>
+        <p><b>Potatoes: </b><%= farmer.details.products.produce.potatoes %></p>
+        <p><b>Spinach: </b><%= farmer.details.products.produce.spinach %></p>
+        <p><b>Squash: </b><%= farmer.details.products.produce.squash %></p>
+        <p><b>Tomatoes: </b><%= farmer.details.products.produce.tomatoes %></p>
+        <p><b>Watermelon: </b><%= farmer.details.products.produce.watermelon %></p>
+       </div>
+       <div class = "col-md-3">
+        <h3>Meat</h3>
+        <p><b>Beef: </b><%= farmer.details.products.meat.beef %></p>
+        <p><b>Chicken: </b><%= farmer.details.products.meat.chicken %></p>
+        <p><b>Duck: </b><%= farmer.details.products.meat.duck %></p>
+        <p><b>Lamb: </b><%= farmer.details.products.meat.lamb %></p>
+        <p><b>Pork: </b><%= farmer.details.products.meat.pork %></p>
+        <p><b>Rabbit: </b><%= farmer.details.products.meat.rabbit %></p>
+        <p><b>Venison: </b><%= farmer.details.products.meat.venison %></p>
+       </div>
+       <div class = "col-md-3">
+        <h3>Other</h3>
+        <p><b>Eggs: </b><%= farmer.details.products.other.eggs %></p>
+        <p><b>Bread: </b><%= farmer.details.products.other.bread %></p>
+        <p><b>Milk: </b><%= farmer.details.products.other.milk %></p>
+      </div>
+     </div>
+
+    <a href="/farmers" class="btn btn-primary">Back</a>
+    <a href="/farmers/<%= farmer._id %>/edit" class="btn btn-danger">Edit your details</a>
+
   </div>
 </div>
 <div class="wrapper">
