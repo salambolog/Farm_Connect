@@ -50,6 +50,7 @@ router.get('/new', authenticate, function(req, res, next) {
 // SHOW
 router.get('/:id', function(req, res, next) {
   Farmer.findById(req.params.id, function(err, farmer) {
+    var farmer = currentFarmer;
     // return next(makeError(res, 'Document not found', 404));
     var checked = farmer.organic ? 'checked' : '';
     res.render('farmers/show', { farmer: farmer, checked: checked, message: req.flash() } );
