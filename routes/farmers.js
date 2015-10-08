@@ -50,19 +50,10 @@ router.get('/new', authenticate, function(req, res, next) {
 // SHOW
 router.get('/:id', function(req, res, next) {
   Farmer.findById(req.params.id, function(err, farmer) {
-    var farmer = currentFarmer;
-    // return next(makeError(res, 'Document not found', 404));
-    // var checked = farmer.organic ? 'checked' : '';
-    res.render('farmers/show', { farmer: farmer, message: req.flash() } );
+    var checked = farmer.organic ? 'checked' : '';
+    res.render('farmers/show', { farmer: farmer, checked: checked, message: req.flash() } );
   });
 });
-
-// router.get('/farmers', function(req, res, next){
-//   Farmer.find({}, function(err, farmers){
-//     if(err) return next(err);
-//     res.send(farmers);
-//   });
-// });
 
 // EDIT
 router.get('/:id/edit', authenticate, function(req, res, next) {
