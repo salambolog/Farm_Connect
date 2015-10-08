@@ -79,7 +79,9 @@ router.put('/:id', function(req, res, next) {
       farmer.address.zipcode = req.body.zipcode;
       farmer.farm_name = req.body.farm_name;
       farmer.details.organic = req.body.organic ? true : false;
-      farmer.details.products.produce.apples = req.body.apples;
+      console.log('THIS IS SOME INFO' + JSON.stringify(req.body));
+      console.log('THIS IS A FARMER' + JSON.stringify(farmer));
+      farmer.details.products.produce.apples = req.body.apples ? true : false;
       farmer.save(function(err) {
         if (err) return next(err);
         // Redirect to profile after update
