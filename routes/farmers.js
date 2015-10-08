@@ -79,7 +79,29 @@ router.put('/:id', function(req, res, next) {
       farmer.address.zipcode = req.body.zipcode;
       farmer.farm_name = req.body.farm_name;
       farmer.details.organic = req.body.organic ? true : false;
-
+      farmer.details.products.produce.apples = req.body.apples ? true : false;
+      farmer.details.products.produce.bananas = req.body.bananas ? true : false;
+      farmer.details.products.produce.carrolts = req.body.carrolts ? true : false;
+      farmer.details.products.produce.eggplants = req.body.eggplants ? true : false;
+      farmer.details.products.produce.figs = req.body.figs ? true : false;
+      farmer.details.products.produce.garlic = req.body.garlic ? true : false;
+      farmer.details.products.produce.lettuce = req.body.lettuce ? true : false;
+      farmer.details.products.produce.peppers = req.body.peppers ? true : false;
+      farmer.details.products.produce.pumpkin = req.body.pumpkin ? true : false;
+      farmer.details.products.produce.potatoes = req.body.potatoes ? true : false;
+      farmer.details.products.produce.spinach = req.body.spinach ? true : false;
+      farmer.details.products.produce.tomatoes = req.body.tomatoes ? true : false;
+      farmer.details.products.produce.watermelon = req.body.watermelon ? true : false;
+      farmer.details.products.meat.beef = req.body.beef ? true : false;
+      farmer.details.products.meat.chicken = req.body.chicken ? true : false;
+      farmer.details.products.meat.duck = req.body.duck ? true : false;
+      farmer.details.products.meat.lamb = req.body.lamb ? true : false;
+      farmer.details.products.meat.pork = req.body.pork ? true : false;
+      farmer.details.products.meat.rabbit = req.body.rabbit ? true : false;
+      farmer.details.products.meat.venison = req.body.venison ? true : false;
+      farmer.details.products.other.eggs = req.body.eggs ? true : false;
+      farmer.details.products.other.bread = req.body.bread ? true : false;
+      farmer.details.products.other.milk = req.body.milk ? true : false;
       farmer.save(function(err) {
         if (err) return next(err);
         // Redirect to profile after update
