@@ -16,6 +16,7 @@ var expressLayouts = require('express-ejs-layouts')
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var farmers = require('./routes/farmers');
+var about = require('./routes/about');
 
 var app = express();
 
@@ -71,6 +72,7 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/farmers', farmers);
+app.use('/about', about);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

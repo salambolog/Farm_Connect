@@ -16,3 +16,6 @@ Welcome to the Farm Connect, an app that connects users to farms and farmer's ma
  Authors:    Loren Crawford
              Guivia Moreira
              Ian Narcisse-Cousar
+
+Heroku:
+Trello:      https://trello.com/b/85C4JfV7/project-3-user-stories
