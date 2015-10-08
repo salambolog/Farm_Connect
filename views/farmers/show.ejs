@@ -1,15 +1,26 @@
+<h2>PROFILE</h2>
 <div class="container">
   <div class="profile">
     <div>
-      <h3>Profile</h3>
       <p><b>Farmer: </b><%= farmer.name %></p>
       <p><b>Farm Name: </b><%= farmer.farm_name %></p>
       <p><b>Phone: </b><%= farmer.phone %></p>
-      <p><b>Location: </b><%= farmer.address.street %> <%= farmer.address.city %>, <%= farmer.address.state %> <%= farmer.address.zipcode %></p>
       <p><b>Organic: </b><%= farmer.details.organic %></p>
     </div>
-
-    <a href="/farmers" class="btn btn-primary">Back</a>
-    <a href="/farmers/<%= farmer._id %>/edit" class="btn btn-danger">Edit your details</a>
   </div>
+</div>
+<div class="wrapper">
+  <div class = 'row'>
+    <div id = "location" class = "col-lg-3">
+       <h2>Our Location: </h2>
+       <h3 id="farmAddress"><%= farmer.address.street %> <%= farmer.address.city %>, <%= farmer.address.state %> <%= farmer.address.zipcode %></h3>
+    </div>
+    <div class = "col-lg-6 col-lg-offset-1">
+      <div id="map" style="width: 700px; height: 450px;"></div>
+    </div>
+  </div>
+   <a href="/" class="btn btn-primary">Back</a>
+    <% if (currentFarmer) { %>
+      <a href="/farmers/<%= farmer._id %>/edit" class="btn btn-danger">Edit your details</a>
+    <% } %>
 </div>
