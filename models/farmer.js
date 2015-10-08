@@ -45,7 +45,7 @@ var FarmerSchema = new Schema({
       other: {
         eggs: {type: Boolean, default: false},
         bread: {type: Boolean, default: false},
-        milk: {type: Boolean, default: false}
+        milk: {type: Boolean, default: false},
       }
     },
     organic: {type: Boolean, default: false}
