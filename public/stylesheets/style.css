@@ -6,7 +6,7 @@ html, body {
 html {
   background: url('../images/apples.jpg');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 body {
   position: absolute;
@@ -21,15 +21,20 @@ h3, h4, h5 {
 
 h1 {
   font-family: 'Neucha', cursive;
-  font-size: 5em;
+  font-size: 3.8em;
   color: #fff;
   text-align: center;
 }
 
 h2, h5 {
   font-family: 'Neucha', cursive;
-  font-size: 2.5em;
+  font-size: 1.8em;
   text-align: center;
+}
+
+.title hr {
+  max-width: 200px;
+  margin: 0 auto;
 }
 
 a {
@@ -64,6 +69,10 @@ ul {
   margin: 0 auto 0;
   background-color: rgba(0, 0, 0, 0.5);
 
+}
+.search-info h4 {
+  color: #888888;
+  font-size: 1.4em;
 }
 
 /**********************/

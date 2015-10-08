@@ -17,17 +17,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// GET Farmers
-// router.get('/farmers', function(req, res, next){
-//   var addresses = Address.find({};)
-// });
-
-
-// // POST FARMERS
-// router.post('/farmers', function(req, res, next){
-
-// });
-
 // GET /signup
 router.get('/signup', function(req, res, next) {
   res.render('signup.ejs', { message: req.flash() });
