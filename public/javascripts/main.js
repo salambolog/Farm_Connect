@@ -99,7 +99,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 // Autoscroll forms into view
 function scrollPage() {
   $('html, body').animate({
-    scrollTop: $('#form').offset().top
+    scrollTop: $('#sign_up').offset().top
     }, 600);
 }
 

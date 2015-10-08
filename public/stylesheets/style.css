@@ -42,7 +42,7 @@ a {
 }
 
 .container {
-  padding-bottom: 50px;
+  padding-bottom: 10px;
   max-height: 990px;
 }
 
@@ -108,7 +108,7 @@ ul {
 .authform {
   padding: 40px;
   margin: auto auto;
-  background-color: rgba(255, 255, 255, 0.9 );
+  background-color: rgba(255, 255, 255, 0.75);
   border-radius: 5px;
   max-width: 80%;
   min-height: auto;
@@ -124,8 +124,9 @@ ul {
 .login-form{
   padding: 40px;
   min-height: 230px;
-  background-color: rgba(0,0,0, 0.6);
+  background-color: rgba(255, 255, 255, 0.75 );
   border-radius: 5px;
+  color: black;
 }
 
 .bg-danger, .bg-success, .bg-info {
