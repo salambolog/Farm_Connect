@@ -55,8 +55,12 @@
       <div id="map" style="width: 700px; height: 450px;"></div>
     </div>
   </div>
-   <a href="/" class="btn btn-primary">Back</a>
-    <% if (currentFarmer) { %>
-      <a href="/farmers/<%= farmer._id %>/edit" class="btn btn-danger">Edit your details</a>
-    <% } %>
+  <div class="row-btn">
+    <div class="col-md-8 col-md-offset-1">
+     <a href="/" class="btn btn-primary">Back</a>
+      <% if (currentFarmer) { %>
+        <a href="/farmers/<%= farmer._id %>/edit" class="btn btn-danger">Edit your details</a>
+      <% } %>
+    </div>
+  </div>
 </div>
