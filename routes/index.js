@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   Farmer.find({}, function(err, farmers) {
   if (err) return console.log(err);
   else{
-  res.render('index', { title: 'Farm Connect',
+  res.render('index', { title: 'FARM CONNECT',
                         farmer: currentFarmer,
                         farmers : farmers
     });
@@ -17,18 +17,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
-
 // GET Farmers
 // router.get('/farmers', function(req, res, next){
 //   var addresses = Address.find({};)
 // });
 
-router.get('/farmers', function(req, res, next){
-  Farmer.find({}, function(err, farmers){
-    if(err) return next(err);
-    res.send(farmers);
-  });
-});
 
 // // POST FARMERS
 // router.post('/farmers', function(req, res, next){
