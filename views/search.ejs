@@ -2,10 +2,12 @@
   <div>
     <h1>Search Results</h1>
 
-    <% results.forEach(function(r){ %>
+    <% farmers.forEach(function(farmer){ %>
     <h4>
-      <a href="/farmers/<%= farmer._id %>"><%= f.farm_name %></a>
-      City: <%= r.address.city %>
+      <a href="/farmers/<%= farmer._id %>"><%= farmer.farm_name %></a>
+      <span style="color: red"> City: <%= farmer.address.city %></span>
+      <span style="color: red"> City: <%= farmer.products %></span>
+
     </h4>
     <% })%>
   </div>

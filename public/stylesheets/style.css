@@ -71,6 +71,10 @@ ul {
 
 }
 
+label {
+  font-weight: 500;
+}
+
 /*************************/
 /***** Search Area *******/
 .search-info {
@@ -81,12 +85,20 @@ ul {
   font-size: 1.4em;
   text-align: center;
 }
-#btn {
-  margin: 0 auto;
-  text-align: center;
+
+.search-details {
+  max-width: 95%;
+  margin: auto;
+  padding-left: 35px;
 }
-.btn-lg {
-  width: 500px;
+
+.btn-search {
+  width: 400px;
+}
+
+.col-lg-12 {
+  max-width: 95%;
+  margin: 0 auto;
 }
 
 /**********************/
