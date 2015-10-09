@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <div>
+    <h1>Search Results</h1>
+
+    <% results.forEach(function(r){ %>
+    <h4>
+      <a href="/farmers/<%= farmer._id %>"><%= f.farm_name %></a>
+      City: <%= r.address.city %>
+    </h4>
+    <% })%>
+  </div>
+</div>

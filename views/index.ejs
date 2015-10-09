@@ -1,73 +1,124 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <div class= "container">
+<div class= "container">
+  <div class="row">
+    <div class="row">
+      <div class="title col-lg-6 col-lg-offset-3">
+        <h1><%= title %></h1>
+         <hr>
+      </div>
+    </div>
+    <!-- END OF FIRST INNER ROW -->
+    <h5> "We pick it, you click it!" </h5>
+    <div class="row">
+      <div class="col-lg-10 col-md-offset-1">
+        <div class="col-lg-6">
+          <div class="imgWrap">
+            <img src="./images/arrows.png">
+            <div class= "imgDescription">
+              <ul>
+                <li> Locally grown food tastes and looks better. </li>
+                <li> The shorter the time between the farm and your table, the less likely it is that nutrients will be lost.</li>
+                <li> Local food is safe. There's a unique kind of assurance that comes from looking a farmer in the eye at farmers' market or driving by the fields where your food comes from.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="imgWrap_Shovel">
+           <img src="./images/shovel.png">
+            <div class= "imgDescription_Shovel">
+              <ul>
+                <li> Farmers should think carefully about their operations and which opportunities might suit them best.</li>
+                <li> Marketing takes time and resources although it can bring higher prices. </li>
+                <li> With Farm connect, farmers can both strengthen their communities and their businesses</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF SECOND INNER ROW-->
+  </div>
+  <!-- END of MAIN ROW -->
+</div>
+<!-- END OF MAIN PAIGE TOP CONTAINER -->
+<div class = "wrapper">
+  <div class = "row">
+    <div class = "search-info col-lg-6 col-lg-offset-3">
+      <h2>Tell us what you're looking for.</h2>
+      <h4>Select one or more options to find farmers near you!</h4>
+    </div>
+  </div>
+  <div class ="search-info row">
+      <hr>
+    <div class="col-xg-10 col-md-offset-1">
+      <!-- HEADERS -->
       <div class="row">
-        <div class="row">
-          <div class="title col-lg-6 col-lg-offset-3">
-            <h1><%= title %></h1>
-             <hr>
-          </div>
+        <div class = "col-md-6">
+          <h3><b>Produce</b></h3>
         </div>
-        <h5> "We pick it, you click it!" </h5>
-        <div class="row">
-          <div class="col-lg-10 col-md-offset-1">
-            <div class="col-lg-6">
-              <div class="imgWrap">
-                <img src="./images/arrows.png">
-                <div class= "imgDescription">
-                  <ul>
-                    <li> Locally grown food tastes and looks better. </li>
-                    <li> Local food is better for you. The shorter the time between the farm and your table, the less likely it is that nutrients will be lost.</li>
-                    <li> Local food is safe. There's a unique kind of assurance that comes from looking a farmer in the eye at farmers' market or driving by the fields where your food comes from.</li>
-                  </ul>
+        <div class = "col-md-3">
+          <h3><b>Meats</b></h3>
+        </div>
+        <div class = "col-md-3">
+          <h3><b>Other</b></h3>
+        </div>
+      </div>
+      <!-- END OF HEADER ROW -->
+      <div class="row">
+        <form class="form" method="GET" action="/search %>">
+             <!-- PRODUCE ROW SECTION -->
+          <div class="row">
+            <div class="form-group col-md-5">
+              <% allProducts.produce.forEach(function(product) { %>
+                <div class="col-sm-4">
+                  <input type="checkbox"
+                         name="products[]"
+                         value="<%= product.name %>"
+                         id="<%= product.name %>" >
+                  <label for="<%= product.name %>"><%= product.label %></label>
+
                 </div>
+              <% }) %>
+            </div>
+                <!-- MEATS SECTION -->
+            <div class = "col-md-4  ">
+              <% allProducts.meats.forEach(function(product) { %>
+                <div class="col-sm-5">
+                  <input type="checkbox"
+                         name="products[]"
+                         value="<%= product.name %>"
+                         id="<%= product.name %>" >
+                  <label for="<%= product.name %>"><%= product.label %></label>
+                </div>
+              <% }) %>
+            </div>
+                <!-- OTHER SECTION -->
+            <div class = "col-md-3">
+              <% allProducts.otherProducts.forEach(function(product) { %>
+                <div class="col-sm-2">
+                  <input type="checkbox"
+                         name="products[]"
+                         value="<%= product.name %>"
+                         id="<%= product.name %>" >
+                  <label for="<%= product.name %>"><%= product.label %></label>
+                  <br />
+                </div>
+              <% }) %>
+
+            </div>
+          </div>
+            <div class="row">
+              <div id="btn">
+                <button class="btn btn-primary btn-lg" type="submit">Find a Farmer!</button>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="imgWrap_Shovel">
-               <img src="./images/shovel.png">
-                <div class= "imgDescription_Shovel">
-                  <ul>
-                    <li> Farmers should think carefully about their operations and which opportunities might suit them best.</li>
-                    <li> Marketing takes time and resources although it can bring higher prices. </li>
-                    <li> With Farm connect, farmers can both strengthen their communities and their businesses</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-          <!-- <div class="or-spacer-vertical left">
-            <div class="mask"></div>
-          </div> -->
+        </form>
       </div>
+      <!-- END OF PRODUCTS ROW -->
     </div>
+  </div>
+</div>
+<!-- END OF SECOND PART OF MAIN PAIGE -->
 
-    <div class = "wrapper">
-      <div class = "row">
-        <div class = "search-info col-lg-6 col-lg-offset-1">
-          <h4>Select one or more options to find farmers near you!</h4>
-        </div>
-      </div>
-      <div class ="row">
-        <div class = "col-lg-5 col-lg-offset-1">
-          <!-- TODO: RENDER PRODUCTS CHECKBOXES AS SEARCH CRITERIA-->
-
-          <input id="address" class = "form-control" type="search" placeholder="Coleman River Rd, Clayton, GA 30525">
-        </div>
-
-        <div class = "col-lg-1">
-          <button class="btn btn-primary btn-lg" type="button" onclick="initialize(), codeAddress(document.getElementById('address').value), fetchPlaces()">Find a farmer!</button>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
 
 
