@@ -48,74 +48,72 @@
       <h4>Select one or more options to find farmers near you!</h4>
     </div>
   </div>
-  <div class ="search-info row">
+  <div class ="row search-info search-details">
       <hr>
-    <div class="col-xg-10 col-md-offset-1">
-      <!-- HEADERS -->
-      <div class="row">
-        <div class = "col-md-6">
-          <h3><b>Produce</b></h3>
-        </div>
-        <div class = "col-md-3">
-          <h3><b>Meats</b></h3>
-        </div>
-        <div class = "col-md-3">
-          <h3><b>Other</b></h3>
-        </div>
+    <!-- HEADERS -->
+    <div class="row">
+      <div class = "col-md-6">
+        <h3><b>Produce</b></h3>
       </div>
-      <!-- END OF HEADER ROW -->
-      <div class="row">
-        <form class="form" method="GET" action="/search %>">
-             <!-- PRODUCE ROW SECTION -->
+      <div class = "col-md-3">
+        <h3><b>Meats</b></h3>
+      </div>
+      <div class = "col-md-3">
+        <h3><b>Other</b></h3>
+      </div>
+    </div>
+    <!-- END OF HEADER ROW -->
+    <div class="row">
+      <form class="form" method="POST" action="/search %>">
+           <!-- PRODUCE ROW SECTION -->
+        <div class="row">
+          <div class="form-group col-md-5">
+            <% allProducts.produce.forEach(function(product) { %>
+              <div class="form-group col-sm-3">
+                <label for="<%= product.name %>">
+                <input type="checkbox"
+                       name="products"
+                       value="<%= product.name %>"
+                       id="<%= product.name %>" > <%= product.label %>
+                </label>
+              </div>
+            <% }) %>
+          </div>
+              <!-- MEATS SECTION -->
+          <div class = "col-md-4  ">
+            <% allProducts.meats.forEach(function(product) { %>
+              <div class="form-group col-sm-3">
+                <label for="<%= product.name %>">
+                <input type="checkbox"
+                       name="products"
+                       value="<%= product.name %>"
+                       id="<%= product.name %>" > <%= product.label %>
+                </label>
+              </div>
+            <% }) %>
+          </div>
+              <!-- OTHER SECTION -->
+          <div class = "col-md-3">
+            <% allProducts.otherProducts.forEach(function(product) { %>
+              <div class="form-group col-sm-3">
+                <label for="<%= product.name %>">
+                <input type="checkbox"
+                       name="products"
+                       value="<%= product.name %>"
+                       id="<%= product.name %>" > <%= product.label %>
+                </label>
+              </div>
+            <% }) %>
+          </div>
+        </div>
           <div class="row">
-            <div class="form-group col-md-5">
-              <% allProducts.produce.forEach(function(product) { %>
-                <div class="col-sm-4">
-                  <input type="checkbox"
-                         name="products[]"
-                         value="<%= product.name %>"
-                         id="<%= product.name %>" >
-                  <label for="<%= product.name %>"><%= product.label %></label>
-
-                </div>
-              <% }) %>
-            </div>
-                <!-- MEATS SECTION -->
-            <div class = "col-md-4  ">
-              <% allProducts.meats.forEach(function(product) { %>
-                <div class="col-sm-5">
-                  <input type="checkbox"
-                         name="products[]"
-                         value="<%= product.name %>"
-                         id="<%= product.name %>" >
-                  <label for="<%= product.name %>"><%= product.label %></label>
-                </div>
-              <% }) %>
-            </div>
-                <!-- OTHER SECTION -->
-            <div class = "col-md-3">
-              <% allProducts.otherProducts.forEach(function(product) { %>
-                <div class="col-sm-2">
-                  <input type="checkbox"
-                         name="products[]"
-                         value="<%= product.name %>"
-                         id="<%= product.name %>" >
-                  <label for="<%= product.name %>"><%= product.label %></label>
-                  <br />
-                </div>
-              <% }) %>
-
+            <div class="text-center">
+              <button class="btn btn-primary btn-lg btn-search" type="submit">Find a Farmer!</button>
             </div>
           </div>
-            <div class="row">
-              <div id="btn">
-                <button class="btn btn-primary btn-lg" type="submit">Find a Farmer!</button>
-              </div>
-            </div>
-        </form>
-      </div>
-      <!-- END OF PRODUCTS ROW -->
+      </form>
     </div>
+      <!-- END OF PRODUCTS ROW -->
   </div>
 </div>
 <!-- END OF SECOND PART OF MAIN PAIGE -->
