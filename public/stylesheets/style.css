@@ -19,6 +19,7 @@ h3, h4, h5 {
   font-family: 'Neucha', cursive;
 }
 
+
 h1 {
   font-family: 'Neucha', cursive;
   font-size: 3.8em;
@@ -127,11 +128,11 @@ ul {
   background-color: white;
 }
 .authform {
-  padding: 40px;
+  padding: 10px 40px;
   margin: auto auto;
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 5px;
-  max-width: 80%;
+  max-width: 85%;
   min-height: auto;
   margin-bottom: 40px;
   color:black;
@@ -168,6 +169,10 @@ ul {
 
 .cancel {
   margin-top: -15px;
+}
+
+label{
+  font-weight: normal;
 }
 
 /*********************/
