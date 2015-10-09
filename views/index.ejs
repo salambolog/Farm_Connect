@@ -1,46 +1,15 @@
+
+ <!--  <body> -->
 <div class= "container">
-  <div class="row">
-    <div class="row">
-      <div class="title col-lg-6 col-lg-offset-3">
-        <h1><%= title %></h1>
-         <hr>
-      </div>
-    </div>
-    <!-- END OF FIRST INNER ROW -->
-    <h5> "We pick it, you click it!" </h5>
-    <div class="row">
-      <div class="col-lg-10 col-md-offset-1">
-        <div class="col-lg-6">
-          <div class="imgWrap">
-            <img src="./images/arrows.png">
-            <div class= "imgDescription">
-              <ul>
-                <li> Locally grown food tastes and looks better. </li>
-                <li> The shorter the time between the farm and your table, the less likely it is that nutrients will be lost.</li>
-                <li> Local food is safe. There's a unique kind of assurance that comes from looking a farmer in the eye at farmers' market or driving by the fields where your food comes from.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="imgWrap_Shovel">
-           <img src="./images/shovel.png">
-            <div class= "imgDescription_Shovel">
-              <ul>
-                <li> Farmers should think carefully about their operations and which opportunities might suit them best.</li>
-                <li> Marketing takes time and resources although it can bring higher prices. </li>
-                <li> With Farm connect, farmers can both strengthen their communities and their businesses</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END OF SECOND INNER ROW-->
+ <h1><%= title %></h1>
+  <h5> "We pick it, you click it!" </h5>
+  <div class="row_index">
+      <div class="title col-lg-6 col-lg-offset-3"></div>
+      <div class="col-lg-6">  <img class= "boxes" src="./images/BAN.png">  </div>
+      <div class="col-lg-6">  <img class= "boxes2" src="./images/BAN2.png">  </div>
   </div>
-  <!-- END of MAIN ROW -->
 </div>
-<!-- END OF MAIN PAIGE TOP CONTAINER -->
+
 <div class = "wrapper">
   <div class = "row">
     <div class = "search-info col-lg-6 col-lg-offset-3">
@@ -49,63 +18,57 @@
     </div>
   </div>
   <div class ="search-info row">
-      <hr>
+    <hr>
     <div class="col-xg-10 col-md-offset-1">
       <!-- HEADERS -->
       <div class="row">
-        <div class = "col-md-6">
-          <h3><b>Produce</b></h3>
+        <div class = "col-md-4">
+          <h3><b>PRODUCE</b></h3>
         </div>
-        <div class = "col-md-3">
-          <h3><b>Meats</b></h3>
+        <div class = "col-md-4">
+          <h3><b>MEATS</b></h3>
         </div>
-        <div class = "col-md-3">
-          <h3><b>Other</b></h3>
+        <div class = "col-md-4">
+          <h3><b>OTHER</b></h3>
         </div>
       </div>
-      <!-- END OF HEADER ROW -->
+      <!-- PRODUCT LIST -->
       <div class="row">
         <form class="form" method="GET" action="/search %>">
-             <!-- PRODUCE ROW SECTION -->
+          <!-- PRODUCE ROW SECTION -->
           <div class="row">
-            <div class="form-group col-md-5">
-              <% allProducts.produce.forEach(function(product) { %>
-                <div class="col-sm-4">
-                  <input type="checkbox"
-                         name="products[]"
-                         value="<%= product.name %>"
-                         id="<%= product.name %>" >
-                  <label for="<%= product.name %>"><%= product.label %></label>
+            <% allProducts.produce.forEach(function(product) { %>
+              <div class="col-sm-4">
+                <input type="checkbox"
+                       name="products[]"
+                       value="<%= product.name %>"
+                       id="<%= product.name %>" >
+                <label for="<%= product.name %>"><%= product.label %></label>
+              </div>
+            <% }) %>
 
-                </div>
-              <% }) %>
-            </div>
-                <!-- MEATS SECTION -->
-            <div class = "col-md-4  ">
-              <% allProducts.meats.forEach(function(product) { %>
-                <div class="col-sm-5">
-                  <input type="checkbox"
-                         name="products[]"
-                         value="<%= product.name %>"
-                         id="<%= product.name %>" >
-                  <label for="<%= product.name %>"><%= product.label %></label>
-                </div>
-              <% }) %>
-            </div>
-                <!-- OTHER SECTION -->
-            <div class = "col-md-3">
-              <% allProducts.otherProducts.forEach(function(product) { %>
-                <div class="col-sm-2">
-                  <input type="checkbox"
-                         name="products[]"
-                         value="<%= product.name %>"
-                         id="<%= product.name %>" >
-                  <label for="<%= product.name %>"><%= product.label %></label>
-                  <br />
-                </div>
-              <% }) %>
+            <!-- MEATS SECTION -->
+            <% allProducts.meats.forEach(function(product) { %>
+              <div class="col-sm-5">
+                <input type="checkbox"
+                       name="products[]"
+                       value="<%= product.name %>"
+                       id="<%= product.name %>" >
+                <label for="<%= product.name %>"><%= product.label %></label>
+              </div>
+            <% }) %>
 
-            </div>
+            <!-- OTHER SECTION -->
+            <% allProducts.otherProducts.forEach(function(product) { %>
+              <div class="col-sm-2">
+                <input type="checkbox"
+                       name="products[]"
+                       value="<%= product.name %>"
+                       id="<%= product.name %>" >
+                <label for="<%= product.name %>"><%= product.label %></label>
+                <br />
+              </div>
+            <% }) %>
           </div>
             <div class="row">
               <div id="btn">
@@ -116,7 +79,6 @@
       </div>
       <!-- END OF PRODUCTS ROW -->
     </div>
-  </div>
 </div>
 <!-- END OF SECOND PART OF MAIN PAIGE -->
 

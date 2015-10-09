@@ -76,6 +76,7 @@ ul {
 /***** Search Area *******/
 .search-info {
   color: #888888;
+  /*display: inline-block;*/
 }
 .search-info  h4 {
   color: #888888;
@@ -88,6 +89,12 @@ ul {
 }
 .btn-lg {
   width: 500px;
+}
+
+.row_index {
+  margin-right: -150px;
+  margin-left: -50px;
+  margin-top: 80px;
 }
 
 /**********************/
@@ -214,6 +221,7 @@ img {
   opacity: .9;
   margin-bottom: 30px;
   margin-top: 15px;
+  float: left;
 }
 
 .or-spacer-vertical {
@@ -321,7 +329,23 @@ img {
   text-align: center;
 }
 
+.col-lg-6 {
+  width: 50%;
+  float: left;
+}
+
 h6{
   font-size: 1.8em;
   font-family: "Dosis", sans-serif;
+}
+
+
+.boxes1{
+  position: left;
+  float: center;
+}
+
+.boxes2{
+  position: left;
+  float: left;
 }
