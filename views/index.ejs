@@ -30,41 +30,50 @@
       <!-- PRODUCT LIST -->
       <div class="search-details row">
         <form class="form" method="POST" action="/search %>">
-          <!-- PRODUCE ROW SECTION -->
-          <div class="row">
-            <% allProducts.produce.forEach(function(product) { %>
-              <div class="col-sm-3">
-                <input type="checkbox"
-                       name="products"
-                       value="<%= product.name %>"
-                       id="<%= product.name %>" >
-                <label for="<%= product.name %>"><%= product.label %></label>
-              </div>
-            <% }) %>
+          <div class="row search-list">
+            <div class="col-md-5">
+              <!-- PRODUCE SECTION -->
+              <h3>Produce</h3>
+              <% allProducts.produce.forEach(function(product) { %>
+                <div class="col-xs-4">
+                  <input type="checkbox"
+                         name="products"
+                         value="<%= product.name %>"
+                         id="<%= product.name %>" >
+                  <label for="<%= product.name %>"><%= product.label %></label><br />
+                  </div>
+              <% }) %>
+            </div>
 
-            <!-- MEATS SECTION -->
-            <% allProducts.meats.forEach(function(product) { %>
-              <div class="col-sm-3">
-                <input type="checkbox"
-                       name="products"
-                       value="<%= product.name %>"
-                       id="<%= product.name %>" >
-                <label for="<%= product.name %>"><%= product.label %></label>
-              </div>
-            <% }) %>
+            <div class="col-lg-3">
+              <!-- MEATS SECTION -->
+              <h3>Meats</h3>
+              <% allProducts.meats.forEach(function(product) { %>
+                <div class="col-xs-5">
+                  <input type="checkbox"
+                         name="products"
+                         value="<%= product.name %>"
+                         id="<%= product.name %>" >
+                  <label for="<%= product.name %>"><%= product.label %></label><br />
+                </div>
+              <% }) %>
+            </div>
 
-            <!-- OTHER SECTION -->
-            <% allProducts.otherProducts.forEach(function(product) { %>
-              <div class="col-sm-3">
-                <input type="checkbox"
-                       name="products"
-                       value="<%= product.name %>"
-                       id="<%= product.name %>" >
-                <label for="<%= product.name %>"><%= product.label %></label>
-                <br />
-              </div>
-            <% }) %>
+            <div class="col-lg-2">
+              <h3>Other</h3>
+              <!-- OTHER SECTION -->
+              <% allProducts.otherProducts.forEach(function(product) { %>
+                <div class="col-xs-7">
+                  <input type="checkbox"
+                         name="products"
+                         value="<%= product.name %>"
+                         id="<%= product.name %>" >
+                  <label for="<%= product.name %>"><%= product.label %></label><br />
+                </div>
+              <% }) %>
+            </div>
           </div>
+          <br />
           <br />
           <br />
           <div class="row">

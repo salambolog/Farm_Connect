@@ -94,7 +94,10 @@ label {
   margin: auto;
   padding-left: 35px;
 }
-
+.search-list {
+  margin-left: 100px;
+  margin-right: -220px;
+}
 .btn-search {
   width: 400px;
 }
