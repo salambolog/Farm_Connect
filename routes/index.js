@@ -119,7 +119,7 @@ router.post('/search', function(req, res, next) {
       Farmer.find({ 'products': { $in: products } }, function(err, farmers) {
        farmers = farmers ? farmers : [];
       // console.log('farmers:', farmers);
-      res.render('search', {farmers: farmers, farmer: currentFarmer, message: req.flash() });
+      res.render('search', {farmers: farmers, farmer: currentFarmer });
       });
     }
   });

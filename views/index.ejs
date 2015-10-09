@@ -20,26 +20,20 @@
 
   <div class ="search-info row">
     <hr>
-    <div class="col-xg-10 col-md-offset-1">
+    <div class="col-lg-12">
       <!-- HEADERS -->
       <div class="row">
-        <div class = "col-md-4">
-          <h3><b>PRODUCE</b></h3>
-        </div>
-        <div class = "col-md-4">
-          <h3><b>MEATS</b></h3>
-        </div>
-        <div class = "col-md-4">
-          <h3><b>OTHER</b></h3>
+        <div class = "col-md-6 col-md-offset-5">
+          <h3><b>AVAILABLE PRODUCTS</b></h3>
         </div>
       </div>
       <!-- PRODUCT LIST -->
-      <div class="row">
-        <form class="form" method="GET" action="/search %>">
+      <div class="search-details row">
+        <form class="form" method="POST" action="/search %>">
           <!-- PRODUCE ROW SECTION -->
           <div class="row">
             <% allProducts.produce.forEach(function(product) { %>
-              <div class="col-sm-4">
+              <div class="col-sm-3">
                 <input type="checkbox"
                        name="products"
                        value="<%= product.name %>"
@@ -50,7 +44,7 @@
 
             <!-- MEATS SECTION -->
             <% allProducts.meats.forEach(function(product) { %>
-              <div class="col-sm-5">
+              <div class="col-sm-3">
                 <input type="checkbox"
                        name="products"
                        value="<%= product.name %>"
@@ -61,7 +55,7 @@
 
             <!-- OTHER SECTION -->
             <% allProducts.otherProducts.forEach(function(product) { %>
-              <div class="col-sm-2">
+              <div class="col-sm-3">
                 <input type="checkbox"
                        name="products"
                        value="<%= product.name %>"
@@ -71,6 +65,8 @@
               </div>
             <% }) %>
           </div>
+          <br />
+          <br />
           <div class="row">
             <div class="text-center">
               <button class="btn btn-primary btn-lg btn-search" type="submit">Find a Farmer!</button>
