@@ -43,6 +43,7 @@ a {
 
 .container {
   padding-bottom: 10px;
+  padding-top: 30px;
   max-height: 990px;
 }
 
@@ -95,7 +96,12 @@ label {
 .btn-search {
   width: 400px;
 }
-
+.col {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 5px;
+  padding: 25px;
+  color: #000000;
+}
 .col-lg-12 {
   max-width: 95%;
   margin: 0 auto;
@@ -130,6 +136,7 @@ label {
 .wrapper {
   padding: 50px;
   background-color: white;
+  color: #999999;
 }
 .authform {
   padding: 40px;

@@ -1,14 +1,16 @@
-<div class="wrapper">
-  <div>
-    <h1>Search Results</h1>
-
+<h2>SEARCH RESULTS</h2>
+<div class="container">
+  <div class="results row">
     <% farmers.forEach(function(farmer){ %>
-    <h4>
-      <a href="/farmers/<%= farmer._id %>"><%= farmer.farm_name %></a>
-      <span style="color: red"> City: <%= farmer.address.city %></span>
-      <span style="color: red"> City: <%= farmer.products %></span>
-
-    </h4>
+      <div class="col col-sm-4">
+      <h4><a href="/farmers/<%= farmer._id %>"><%= farmer.farm_name %></a></h4>
+        <p> City: <%= farmer.address.city %><br />
+            Phone Number: <%= farmer.phone %></p>
+        <b>Products:</b><br />
+          <% farmer.products.forEach(function(p) { %>
+            <%= p %><br />
+          <% }) %> </p>
+      </div>
     <% })%>
   </div>
 </div>

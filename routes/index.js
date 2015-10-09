@@ -103,29 +103,21 @@ router.get('/about', function(req, res, next) {
 
 // Search
 router.post('/search', function(req, res, next) {
-  var products = req.body.products;
-  if (typeof products === 'string') {
-    products = [ products ];
-  }
-  console.log('products:', products);
-
-  // TODO:
-  // 1. create a single array of containing all of the products that were selected
-  // 2. use mongoose $in method to find all farmers that have any of the selected produce
-  // 3. call render inside callback of $in operation
-  Farmer.find({ 'products': { $in: products } }, function(err, farmers) {
-    farmers = farmers ? farmers : [];
-    console.log('farmers:', farmers);
-    res.render('search', {farmers: farmers});
+  Farmer.find({}, function(err, farmers) {
+    if (err) return console.log(err);
+    else {
+      var products = req.body.products;
+      if (typeof products === 'string') {
+        products = [ products ];
+      }
+      // console.log('products:', products);
+      Farmer.find({ 'products': { $in: products } }, function(err, farmers) {
+       farmers = farmers ? farmers : [];
+      // console.log('farmers:', farmers);
+      res.render('search', {farmers: farmers, farmer: currentFarmer, message: req.flash() });
+      });
+    }
   });
-
-  // forEach(function(produce, produce) {
-  //   Farmer.find({ 'details.products.produce[produce]': true }, function(err, farmers) {
-  //     results.push(farmers);
-  //     console.log('Search results: ' + results);
-  //   });
-  // });
-
 });
 
 
