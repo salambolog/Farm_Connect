@@ -3,8 +3,8 @@
     <form class="form" method="POST" action="/farmers/<%= farmer._id %>?_method=PUT">
       <div class="row">
         <h4>PLEASE NOTE: All fields are required.</h4>
-        <div class="col-md-6">
-          <h3>Information</h3>
+        <div class="col-md-2">
+          <h3>INFORMATION</h3>
           <div class="form-group">
             <label for="name">Name:</label>
             <input class="form-control well" type="text" name="name" id="name"
@@ -31,9 +31,9 @@
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-2">
           <div class="form-group">
-          <h3>Address</h3>
+          <h3>ADDRESS</h3>
             <label for="street">Street:</label>
             <input class="form-control" type="text" name="street" id="street"
                    value="<%= farmer.address.street %>" required>
@@ -53,7 +53,7 @@
                        value="<%= farmer.address.state %>" required>
               </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-8">
               <div class="form-group">
                 <label for="zipcode">Zipcode:</label>
                 <input class="form-control" type="text" pattern="\d{5,5}?"
@@ -69,72 +69,74 @@
                    <%= farmer.isOrganic() ? 'checked' : '' %> >
           </div>
         </div>
-      </div>  <!-- end of row -->
 
-      <div class = "row">
-        <div class = "col-md-12">
-          <h2>TELL US WHAT YOU'RE GROWING.</h2>
-          <div class = "col-md-5">
-            <h3><b>PRODUCE</b></h3>
+        <div class = "col-md-8">
+          <h2>TELL US WHAT YOU'RE GROWING</h2>
+          <div class = "col-md-6">
+            <h4><b>PRODUCE</b></h4>
             <hr>
             <% allProducts.produce.forEach(function(product) { %>
               <div class="form-group col-sm-3">
                 <label for="<%= product.name %>">
+                <%= product.label %>
                 <input class="form-control"
                        type="checkbox"
                        name='products'
                        value="<%= product.name %>"
-                       id="<%= product.name %>" <%= farmer.getChecked(product.name) %> ><%= product.label %>
+                       id="<%= product.name %>" <%= farmer.getChecked(product.name) %> >
                 </label>
               </div>
             <% }) %>
           </div>
           <div class = "col-md-4">
-            <h3><b>MEAT</b></h3>
+            <h4><b>MEAT</b></h4>
             <hr>
             <% allProducts.meats.forEach(function(product) { %>
-              <div class="form-group col-sm-3">
+              <div class="form-group col-sm-4">
+                <%= product.label %>
                 <input class="form-control"
                        type="checkbox"
                        name='products'
                        value="<%= product.name %>"
-                       id="<%= product.name %>" <%= farmer.getChecked(product.name) %> ><%= product.label %>
+                       id="<%= product.name %>" <%= farmer.getChecked(product.name) %> >
               </div>
             <% }) %>
           </div>
-          <div class = "col-md-3">
-            <h3><b>OTHER</b></h3>
+          <div class = "col-md-2">
+            <h4><b>OTHER</b></h4>
             <hr>
             <% allProducts.otherProducts.forEach(function(product) { %>
-              <div class="form-group col-sm-3">
+              <div class="form-group col-sm-8">
                 <label for="<%= product.name %>">
+                <%= product.label %>
                 <input class="form-control"
                        type="checkbox"
                        name='products'
                        value="<%= product.name %>"
-                       id="<%= product.name %>" <%= farmer.getChecked(product.name) %> ><%= product.label %>
+                       id="<%= product.name %>" <%= farmer.getChecked(product.name) %> >
                 </label>
               </div>
             <% }) %>
           </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <h3>Save Account Details</h3>
-          <a href="/farmers/<%= farmer._id %>" class="btn btn-primary btn-lg">Back</a>
-          <button type="submit" class="btn btn-success btn-lg">Save</button>
+          <div class= "col-md-offset-2">
+            <!-- <h2>Save Account Details</h2> -->
+            <button type="submit" class="btn btn-success btn-lg">Save</button>
+            <br>
+            <br>
+            <div class = "col-md-offset-4">
+              <a href="/farmers/<%= farmer._id %>"><p>Want to go back?</p></a>
+            </div>
         </div>
       </div>
     </form>
-
     <form method="POST" action="/farmers/<%= farmer._id %>?_method=DELETE">
-      <div class="cancel col-md-6">
-        <h3>Delete Account</h3>
-        <button type="delete" class="btn btn-md btn-danger">Delete</button>
+        <div class="cancel col-md-offset-1">
+          <h3>Delete Account</h3>
+          <button type="delete" class="btn btn-md btn-danger">Delete</button>
+        </div>
+      </form>
       </div>
-    </form>
+    </div>
   </div>
 </div>
 

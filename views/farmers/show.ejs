@@ -10,29 +10,11 @@
         <p><b>Organic: </b><%= farmer.organic %></p>
       </div>
       <div class = "col-md-3">
-        <h3>Produce:</h3>
-        <% allProducts.produce.forEach(function(p) { %>
-          <% if (farmer.products.indexOf(p) !== -1) { %>
-            <p><%= p.label %></p>
-          <% } %>
+        <h3>Products:</h3>
+        <% farmer.products.forEach(function(p) { %>
+          <%= p %>
+          <br>
         <% }) %>
-       </div>
-       <div class = "col-md-3">
-        <h3>Meat</h3>
-        <% allProducts.meats.forEach(function(p) { %>
-          <% if (farmer.products.indexOf(p) !== -1) { %>
-            <p><%= p.label %></p>
-          <% } %>
-        <% }) %>
-       </div>
-       <div class = "col-md-3">
-        <h3>Other</h3>
-        <% allProducts.otherProducts.forEach(function(p) { %>
-          <% if (farmer.products.indexOf(p) !== -1) { %>
-            <p><%= p.label %></p>
-          <% } %>
-        <% }) %>
-      </div>
     </div>
   </div>
 </div>

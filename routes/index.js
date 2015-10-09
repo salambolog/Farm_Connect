@@ -98,7 +98,12 @@ router.get('/logout', function(req, res, next) {
 
 //GET /About
 router.get('/about', function(req, res, next) {
-  res.render('about');
+  Farmer.find({}, function(err, farmers) {
+    if (err) return console.log(err);
+    else{
+    res.render('about', {farmer: currentFarmer});
+   }
+  });
 });
 
 // Search
