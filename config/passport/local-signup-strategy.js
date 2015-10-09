@@ -2,6 +2,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var Farmer = require('../../models/farmer');
 
 var strategy = new LocalStrategy(
+
   {
     usernameField : 'email',       // default for usernameField is 'username'
     passwordField : 'password',
@@ -25,9 +26,14 @@ var strategy = new LocalStrategy(
         newFarmer.address.city = req.body.city;
         newFarmer.address.state = req.body.state;
         newFarmer.address.zipcode = req.body.zipcode;
-        newFarmer.address.organic = req.body.organic;
+        newFarmer.organic = req.body.organic;
         newFarmer.local.email = email;
         newFarmer.local.password = newFarmer.encrypt(password);
+        // newFarmer.products = products;
+        //  var products = req.body.products.forEach(function(p) {
+        //     products.$push(p);
+        //     console.log('products ' + products);
+        //   });
 
         console.log('Full request: ' + JSON.stringify(req.body));
 
