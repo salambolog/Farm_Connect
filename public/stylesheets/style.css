@@ -75,6 +75,12 @@ ul {
   font-size: 1.4em;
 }
 
+.row{
+  margin-right: -150px;
+  margin-left: -50px;
+  margin-bottom: -50px;
+}
+
 /**********************/
 /******* NAVBAR *******/
 .navbar {
