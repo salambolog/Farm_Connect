@@ -44,6 +44,7 @@ a {
 
 .container {
   padding-bottom: 10px;
+  padding-top: 30px;
   max-height: 990px;
 }
 
@@ -72,6 +73,10 @@ ul {
 
 }
 
+label {
+  font-weight: 500;
+}
+
 /*************************/
 /***** Search Area *******/
 .search-info {
@@ -83,12 +88,25 @@ ul {
   font-size: 1.4em;
   text-align: center;
 }
-#btn {
-  margin: 0 auto;
-  text-align: center;
+
+.search-details {
+  max-width: 95%;
+  margin: auto;
+  padding-left: 35px;
 }
-.btn-lg {
-  width: 500px;
+
+.btn-search {
+  width: 400px;
+}
+.col {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 5px;
+  padding: 25px;
+  color: #000000;
+}
+.col-lg-12 {
+  max-width: 95%;
+  margin: 0 auto;
 }
 
 .row_index {
@@ -126,6 +144,7 @@ ul {
 .wrapper {
   padding: 50px;
   background-color: white;
+  color: #999999;
 }
 .authform {
   padding: 10px 40px;
